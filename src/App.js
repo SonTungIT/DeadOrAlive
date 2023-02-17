@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import './App.css';
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link, useHref } from 'react-router-dom'
 import Login from "../src/Authenticated/Login"
 import Register from "./Authenticated/Register";
 import Info from "./Authenticated/Info";
 
 function App() {
   return (
-
     <div className="App">
       {/* <div>
         <nav>
@@ -17,7 +16,9 @@ function App() {
             </li>
           </ul>
         </nav>
-      </div> */}
+      </div> */
+      }
+      
 
       <Routes>
         
