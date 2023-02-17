@@ -28,7 +28,7 @@ function Register() {
                     <input value={confirm} onChange={(e) => setConfirm(e.target.value)} name="confirm" id="confirm" placeholder="XÁC THỰC MẬT KHẨU" />
                     <button className="btn-icon-arrow" type="submit">
                         <Link className="link-btn" to={config.routes.information}>
-                             123
+                             <p></p>
                         </Link>
                     </button>
                 </form>
