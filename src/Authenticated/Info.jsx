@@ -20,7 +20,16 @@ function Infomation() {
                 <form className="register-form" onSubmit={handleSubmit}>
                     <input value={name} onChange={(e) => setName(e.target.value)} name="name" id="name" placeholder="HỌ VÀ TÊN" />
                     <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="EMAIL " id="email" name="email" />
+                    <input value={confirm_e} onChange={(e) => setConfirm_e(e.target.value)} type="email" placeholder="XÁC THỰC EMAIL " id="confirm_e" name="confirm_e" />
+                    <button type="submit">
+                        <Link className="register" to={config.routes.information}>
+                             ĐĂNG KÝ
+                        </Link>
+                    </button>
                 </form>
+                <button onClick={""}>
+                    <Link className="link-btn" to={config.routes.login}>ĐÃ CÓ TÀI KHOẢN ?</Link>
+                </button>
             </div>
         </div>
     )

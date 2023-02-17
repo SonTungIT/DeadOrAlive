@@ -22,9 +22,10 @@
 .register-form {
   display: flex;
   flex-direction: column;
-  padding: 50px 20px;
+  padding: 50px 20px 30px 20px;
   align-items: center;
 }
+
 
 .auth-form-container {
   background-color: rgb(255, 255, 255);
@@ -77,6 +78,36 @@ button {
 
 :hover.btn-icon-arrow {
   background-color: #1B3630;
+}
+
+.register {
+  color: #888;
+  font-size: 14px;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  border: 1px solid #D9D9D9;
+  border-radius: 26px;
+  text-decoration: none;
+  font-family: url("fonts/Montserrat-Black.ttf");
+}
+
+:hover.register {
+  color: #D9D9D9;
+  background-color: #1B3630;
+}
+
+.google-btn {
+  padding: 16px 30px;
+  width: 30%;
+  height: 84px;
+  background-size: 2em;
+  border-radius: 20px;
+  background-image: url("../public/images/logoGG.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #ffffff;
+  border: 2px solid #f1f1f1;
+  text-align: center;
 }
 
 .link-btn {

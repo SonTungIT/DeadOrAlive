@@ -1,9 +1,12 @@
 const routes = {
+    // Authenticated
     login: "/",
-  
     register: "/register",
+    information: "/information",
 
-    information: "/information"
+    //Home
+    admin: "/admin",
+    user: "/user",
   };
   
   export default routes;

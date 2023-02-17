@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import config from "../config";
 import { Link } from "react-router-dom";
 import { auth, provider } from "./firebase";
-import {signInWithPopup} from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
+
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -16,12 +17,12 @@ function Login() {
     //Cong add
     const [value, setValue] = useState('');
     const handleClick = () => {
-        signInWithPopup(auth,provider).then((data)=>{
-        setValue(data.user.email)
-        localStorage.setItem("email",data.user.email)
+        signInWithPopup(auth, provider).then((data) => {
+            setValue(data.user.email)
+            localStorage.setItem("email", data.user.email)
         })
     }
-    useEffect(()=>{
+    useEffect(() => {
         setValue(localStorage.getItem('email'))
     })
     return (
@@ -33,16 +34,16 @@ function Login() {
                     <form className="login-form" onSubmit={handleSubmit}>
                         <input value={username} onChange={(e) => setUsername(e.target.value)}
                             type="text" placeholder="TÊN NGƯỜI DÙNG" id="username" name="username" />
-                        <input value={password} onChange={(e) => setPassword(e.target.value)} 
+                        <input value={password} onChange={(e) => setPassword(e.target.value)}
                             type="password" placeholder="MẬT KHẨU" id="password" name="password" />
                         <button className="btn-icon-arrow" type="submit">
-                            <Link className="login-form" to={config.routes.information}></Link>
+                            <Link className="link-btn" to={config.routes.information}></Link>
+                        </button>
+                        <button onClick={handleClick}>
+                            <Link className="google-btn" to={config.routes.user}></Link>
                         </button>
                     </form>
-                    <button className="link-btn" onClick={handleClick}>
-                        <Link className="link-btn" to={config.routes.information}>Signin With Google</Link>
-                    </button>
-                    <button className="link-btn" onClick={""}>
+                    <button onClick={""}>
                         <Link className="link-btn" to={config.routes.register}>TẠO TÀI KHOẢN</Link>
                     </button>
                 </div>

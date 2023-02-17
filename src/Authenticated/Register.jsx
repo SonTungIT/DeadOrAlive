@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import config from "../config";
 import { Link } from "react-router-dom";
+// import "../Authenticated/Login.css";
 
 function Register() {
     const [email, setEmail] = useState('');
