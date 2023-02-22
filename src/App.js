@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import './App.css';
 import { Routes, Route, Link, useHref } from 'react-router-dom'
 import Login from "../src/Authenticated/Login"
 import Register from "./Authenticated/Register";
 import Info from "./Authenticated/Info";
 import User from "./Home/User/User";
+import Admin from "./Home/Admin/Admin";
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
 
       <Routes>
         
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Admin />} />
         <Route path="/register" element={<Register />} />
         <Route path="/information" element={<Info />} />
         <Route path="/user" element={<User />} />
