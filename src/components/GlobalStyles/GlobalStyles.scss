@@ -1,10 +1,11 @@
-@import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@use '../../styles/' as *;
 
 :root {
 }
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -12,5 +13,13 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font-family-montserrat;
+    height: 100%;
+    text-rendering: optimizeSpeed;
+}
+
+a[href] {
+    color: var(--text-color);
+    text-decoration: none;
+    color: unset !important;
 }

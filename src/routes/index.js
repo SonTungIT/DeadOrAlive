@@ -5,10 +5,10 @@ import Admin from '~/pages/Home/Admin/Admin';
 import { DefaultLayout } from '~/components/Layout';
 
 const publicRoutes = [
-    { path: '/', component: Login, layout: null },
+    { path: '/login', component: Login, layout: null },
     { path: '/register', component: Register, layout: null },
     { path: '/information', component: Info, layout: null },
-    { path: '/admin', component: Admin, layout: DefaultLayout },
+    { path: '/', component: Admin, layout: DefaultLayout },
 ];
 
 const privateRoutes = [];
