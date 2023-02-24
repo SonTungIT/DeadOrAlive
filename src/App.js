@@ -1,36 +1,38 @@
-import React, { useState } from "react";
-import { Routes, Route, Link, useHref } from 'react-router-dom'
-import Login from "../src/Authenticated/Login"
-import Register from "./Authenticated/Register";
-import Info from "./Authenticated/Info";
-import User from "./Home/User/User";
-import Admin from "./Home/Admin/Admin";
+import { Fragment } from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { publicRoutes } from '~/routes';
+import { DefaultLayout } from './components/Layout';
 
 function App() {
-  return (
-    <div className="App">
-      {/* <div>
-        <nav>
-          <ul>
-            <li>
-              <a href="/login">Login</a>
-            </li>
-          </ul>
-        </nav>
-      </div> */
-      }
-      
+    return (
+        <div className="App">
+            <Routes>
+                {publicRoutes.map((route, index) => {
+                    let Layout = DefaultLayout;
+                    if (route.layout) {
+                        Layout = route.layout;
+                    } else if (route.layout === null) {
+                        Layout = Fragment;
+                    }
 
-      <Routes>
-        
-        <Route path="/" element={<Admin />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/information" element={<Info />} />
-        <Route path="/user" element={<User />} />
+                    const Page = route.component;
 
-      </Routes>
-    </div>
-  );
+                    return (
+                        <Route
+                            key={index}
+                            path={route.path}
+                            element={
+                                <Layout>
+                                    <Page />
+                                </Layout>
+                            }
+                        />
+                    );
+                })}
+            </Routes>
+        </div>
+    );
 }
 
 export default App;
