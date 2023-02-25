@@ -41,7 +41,7 @@ export const MenuOpenIcon = ({ className, width = '24', height = '24' }) => (
     </svg>
 );
 
-export const AccountUserIcon = ({ className, width = '24', height = '24' }) => {
+export const AccountUserIcon = ({ className, width = '24', height = '24' }) => (
     <svg
         className={className}
         width={width}
@@ -50,21 +50,21 @@ export const AccountUserIcon = ({ className, width = '24', height = '24' }) => {
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
     >
-        <g clip-path="url(#clip0_326_842)">
+        <g clip-path="url(#clip0_160_758)">
             <path
                 d="M9 13.75C6.66 13.75 2 14.92 2 17.25V19H16V17.25C16 14.92 11.34 13.75 9 13.75ZM4.34 17C5.18 16.42 7.21 15.75 9 15.75C10.79 15.75 12.82 16.42 13.66 17H4.34ZM9 12C10.93 12 12.5 10.43 12.5 8.5C12.5 6.57 10.93 5 9 5C7.07 5 5.5 6.57 5.5 8.5C5.5 10.43 7.07 12 9 12ZM9 7C9.83 7 10.5 7.67 10.5 8.5C10.5 9.33 9.83 10 9 10C8.17 10 7.5 9.33 7.5 8.5C7.5 7.67 8.17 7 9 7ZM16.04 13.81C17.2 14.65 18 15.77 18 17.25V19H22V17.25C22 15.23 18.5 14.08 16.04 13.81V13.81ZM15 12C16.93 12 18.5 10.43 18.5 8.5C18.5 6.57 16.93 5 15 5C14.46 5 13.96 5.13 13.5 5.35C14.13 6.24 14.5 7.33 14.5 8.5C14.5 9.67 14.13 10.76 13.5 11.65C13.96 11.87 14.46 12 15 12Z"
-                fill="#285D9A"
+                fill="currentColor"
             />
         </g>
         <defs>
-            <clipPath id="clip0_326_842">
+            <clipPath id="clip0_160_758">
                 <rect width={width} height={height} fill="currentColor" />
             </clipPath>
         </defs>
-    </svg>;
-};
+    </svg>
+);
 
-export const BookOpenIcon = ({ className, width = '24', height = '24' }) => {
+export const BookOpenIcon = ({ className, width = '24', height = '24' }) => (
     <svg
         className={className}
         width={width}
@@ -87,10 +87,10 @@ export const BookOpenIcon = ({ className, width = '24', height = '24' }) => {
             strokeLinecap="round"
             strokeLinejoin="round"
         />
-    </svg>;
-};
+    </svg>
+);
 
-export const GradeIcon = ({ className, width = '24', height = '24' }) => {
+export const GradeIcon = ({ className, width = '24', height = '24' }) => (
     <svg
         className={className}
         width={width}
@@ -99,21 +99,21 @@ export const GradeIcon = ({ className, width = '24', height = '24' }) => {
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
     >
-        <g clip-path="url(#clip0_151_372)">
+        <g clip-path="url(#clip0_160_766)">
             <path
-                d="M12 7.13L12.97 9.42L13.44 10.53L14.64 10.63L17.11 10.84L15.23 12.47L14.32 13.26L14.59 14.44L15.15 16.85L13.03 15.57L12 14.93L10.97 15.55L8.85 16.83L9.41 14.42L9.68 13.24L8.77 12.45L6.89 10.82L9.36 10.61L10.56 10.51L11.03 9.4L12 7.13V7.13ZM12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z"
-                fill="#285D9A"
+                d="M12 7.13L12.97 9.42L13.44 10.53L14.64 10.63L17.11 10.84L15.23 12.47L14.32 13.26L14.59 14.44L15.15 16.85L13.03 15.57L12 14.93L10.97 15.55L8.85 16.83L9.41 14.42L9.68 13.24L8.77 12.45L6.89 10.82L9.36 10.61L10.56 10.51L11.03 9.4L12 7.13ZM12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2Z"
+                fill="currentColor"
             />
         </g>
         <defs>
-            <clipPath id="clip0_151_372">
+            <clipPath id="clip0_160_766">
                 <rect width={width} height={height} fill="currentColor" />
             </clipPath>
         </defs>
-    </svg>;
-};
+    </svg>
+);
 
-export const RollAltIcon = ({ className, width = '24', height = '24' }) => {
+export const RollAltIcon = ({ className, width = '24', height = '24' }) => (
     <svg
         className={className}
         width={width}
@@ -149,43 +149,38 @@ export const RollAltIcon = ({ className, width = '24', height = '24' }) => {
             stroke-linecap="round"
             stroke-linejoin="round"
         />
-    </svg>;
-};
+    </svg>
+);
 
-export const SwordIcon = ({ className, width = '24', height = '24' }) => {
+export const SwordIcon = ({ className, width = '37', height = '38' }) => (
     <svg
         className={className}
         width={width}
         height={height}
-        viewBox="0 0 24 24"
-        fill="currentColor"
+        viewBox="0 0 37 38"
+        fill="none"
         xmlns="http://www.w3.org/2000/svg"
     >
-        <g clip-path="url(#clip0_109_7220)">
+        <g clip-path="url(#clip0_160_775)">
             <path
-                d="M8.65137 16.5412L11.3882 15.1568M22.6227 9.47403L20.1335 10.7331M11.3882 15.1568L16.1515 24.5735C16.2496 24.7674 16.4112 24.9218 16.6094 25.0109L22.1686 27.5093C22.7098 27.7525 23.3389 27.4452 23.4797 26.8689L24.9651 20.7903C25.0189 20.5704 24.9922 20.3385 24.8901 20.1365L20.1335 10.7331M11.3882 15.1568L20.1335 10.7331"
+                d="M8.65137 16.5412L11.3882 15.1568M22.6227 9.47406L20.1335 10.7332M11.3882 15.1568L16.1515 24.5736C16.2496 24.7674 16.4112 24.9218 16.6094 25.0109L22.1686 27.5094C22.7098 27.7526 23.3389 27.4453 23.4797 26.8689L24.9651 20.7903C25.0189 20.5704 24.9922 20.3386 24.8901 20.1366L20.1335 10.7332M11.3882 15.1568L20.1335 10.7332"
                 stroke="#285D9A"
                 stroke-width="1.93753"
                 stroke-linecap="round"
             />
             <path d="M13.5369 8.85608L15.6368 13.0076" stroke="#285D9A" stroke-width="1.93753" stroke-linecap="round" />
             <circle cx="20.1802" cy="21.9892" r="1.11836" transform="rotate(-26.8317 20.1802 21.9892)" fill="#285D9A" />
-            <circle cx="18.6658" cy="18.9953" r="1.11836" transform="rotate(-26.8317 18.6658 18.9953)" fill="#285D9A" />
+            <circle cx="18.6658" cy="18.9954" r="1.11836" transform="rotate(-26.8317 18.6658 18.9954)" fill="#285D9A" />
         </g>
         <defs>
-            <clipPath id="clip0_109_7220">
-                <rect
-                    width={width}
-                    height={height}
-                    fill="currentColor"
-                    transform="translate(0 12.0593) rotate(-26.8317)"
-                />
+            <clipPath id="clip0_160_775">
+                <rect width={width} height={height} fill="white" transform="translate(0 12.0593) rotate(-26.8317)" />
             </clipPath>
         </defs>
-    </svg>;
-};
+    </svg>
+);
 
-export const ShopIcon = ({ className, width = '24', height = '24' }) => {
+export const ShopIcon = ({ className, width = '24', height = '24' }) => (
     <svg
         className={className}
         width={width}
@@ -211,5 +206,44 @@ export const ShopIcon = ({ className, width = '24', height = '24' }) => {
             stroke="#285D9A"
             stroke-width="2"
         />
-    </svg>;
-};
+    </svg>
+);
+
+export const ArrowDownIcon = ({ className, width = '24', height = '31' }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 24 31"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <path
+            d="M7.1234 24L6.0617 25.0617L12 31L17.9383 25.0617L16.8766 24L12 28.8766L7.1234 24Z"
+            fill="currentColor"
+        />
+    </svg>
+);
+
+export const ArrowLeftIcon = ({ className, width = '24', height = '24' }) => (
+    <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <g clipPath="url(#clip0_476_15534)">
+            <path
+                d="M15.5617 7.62338L14.5 6.56169L8.56169 12.5L14.5 18.4383L15.5617 17.3766L10.6851 12.5L15.5617 7.62338Z"
+                fill="currentColor"
+            />
+        </g>
+        <defs>
+            <clipPath id="clip0_476_15534">
+                <rect width={width} height={height} fill="currentColor" transform="translate(24) rotate(90)" />
+            </clipPath>
+        </defs>
+    </svg>
+);

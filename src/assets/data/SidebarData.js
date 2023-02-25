@@ -5,38 +5,52 @@ import {
     RollAltIcon,
     SwordIcon,
     ShopIcon,
+    ArrowDownIcon,
+    ArrowLeftIcon,
 } from '~/components/Layout/components/Icons';
 import config from '~/config';
 
 export const SidebarData = [
     {
-        title: 'Admin',
-        path: config.routes.admin,
+        title: 'TÀI KHOẢN USER',
+        path: config.routes.home,
         icon: <AccountUserIcon />,
+        iconClosed: <ArrowDownIcon />,
+        iconOpened: <ArrowLeftIcon />,
     },
     {
-        title: 'Task',
-        path: config.routes.taskManage,
+        title: 'NHIỆM VỤ',
+        path: config.routes.taskManagement,
         icon: <BookOpenIcon />,
+        iconClosed: <ArrowDownIcon />,
+        iconOpened: <ArrowLeftIcon />,
     },
     {
-        title: 'Notification',
-        path: config.routes.notificationManage,
+        title: 'THÔNG BÁO',
+        path: config.routes.notificationManagement,
         icon: <GradeIcon />,
+        iconClosed: <ArrowDownIcon />,
+        iconOpened: <ArrowLeftIcon />,
     },
     {
-        title: 'News',
-        path: config.routes.newsManage,
+        title: 'Tin Tức',
+        path: config.routes.newsManagement,
         icon: <RollAltIcon />,
+        iconClosed: <ArrowDownIcon />,
+        iconOpened: <ArrowLeftIcon />,
     },
     {
         title: 'Game',
-        path: config.routes.gameManage,
+        path: config.routes.gameManagement,
         icon: <SwordIcon />,
+        iconClosed: <ArrowDownIcon />,
+        iconOpened: <ArrowLeftIcon />,
     },
     {
         title: 'Shop',
-        path: config.routes.shopManage,
+        path: config.routes.shopManagement,
         icon: <ShopIcon />,
+        iconClosed: <ArrowDownIcon />,
+        iconOpened: <ArrowLeftIcon />,
     },
 ];
