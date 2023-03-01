@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './NewsManagement.scss';
 import { Pagination } from '@mui/material';
 import LayoutAdmin from '../LayoutAdmin';
 import NewsTable from '~/pages/Home/Admin/NewsManagement/NewsTable';
+import Button from '~/components/Layout/components/Button';
+import { AddIcon } from '~/components/Layout/components/Icons';
+import NewsModal from './ImportModal/NewsModal';
 
 const cx = classNames.bind(styles);
 
@@ -32,20 +35,33 @@ function NewsManagement() {
         },
     ];
 
+    const [openModal, setOpenModal] = useState(false);
+
     return (
-        <LayoutAdmin>
-            <div className={cx('header')}>
-                <div>Nhiệm Vụ</div>
-                <div>Button</div>
-            </div>
-            <div className={cx('container')}>
-                <NewsTable data={data} />
-            </div>
-            <div className={cx('footer')}>
-                {/* <Pagination pagination={pagination} onPageChange={handlePageChange} /> */}
-                <Pagination count={10} showFirstButton showLastButton color="primary" />
-            </div>
-        </LayoutAdmin>
+        <div>
+            <LayoutAdmin>
+                <div className={cx('header')}>
+                    <div>Nhiệm Vụ</div>
+                    <Button
+                        primary
+                        leftIcon={<AddIcon />}
+                        onClick={() => {
+                            setOpenModal(true);
+                        }}
+                    >
+                        THÊM MỚI
+                    </Button>
+                </div>
+                <div className={cx('container')}>
+                    <NewsTable data={data} />
+                </div>
+                <div className={cx('footer')}>
+                    {/* <Pagination pagination={pagination} onPageChange={handlePageChange} /> */}
+                    <Pagination count={10} showFirstButton showLastButton color="primary" />
+                </div>
+            </LayoutAdmin>
+            {openModal && <NewsModal closeModal={setOpenModal} />}
+        </div>
     );
 }
 

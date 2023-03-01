@@ -4,9 +4,9 @@
     justify-content: center;
     min-width: 100px;
     padding: 9px 16px;
-    border-radius: 4px;
-    font-size: 1.6rem;
-    font-weight: 700;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
     cursor: pointer;
     background-color: var(--white);
     border: 1px solid transparent;
@@ -33,6 +33,17 @@
     border-color: var(--primary);
 
     &:hover {
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #e1651a;
     }
+}
+
+.text {
+    color: red;
+    font-size: 1.2rem;
+    text-decoration: underline;
+}
+.rounded {
+    color: var(--white);
+    font-size: 1.2rem;
+    background-color: var(--common);
 }
