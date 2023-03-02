@@ -41,7 +41,7 @@ function NewsManagement() {
         <div>
             <LayoutAdmin>
                 <div className={cx('header')}>
-                    <div>Nhiệm Vụ</div>
+                    <div>Tin Tức</div>
                     <Button
                         primary
                         leftIcon={<AddIcon />}
