@@ -280,3 +280,123 @@ export const AddIcon = ({ className, width = '24', height = '24' }) => (
         </defs>
     </svg>
 );
+
+export const VisibilityIcon = ({ className, width = '24', height = '24' }) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_117_11573)">
+            <path
+                d="M12 6C15.79 6 19.17 8.13 20.82 11.5C19.17 14.87 15.79 17 12 17C8.21 17 4.83 14.87 3.18 11.5C4.83 8.13 8.21 6 12 6ZM12 4C7 4 2.73 7.11 1 11.5C2.73 15.89 7 19 12 19C17 19 21.27 15.89 23 11.5C21.27 7.11 17 4 12 4ZM12 9C13.38 9 14.5 10.12 14.5 11.5C14.5 12.88 13.38 14 12 14C10.62 14 9.5 12.88 9.5 11.5C9.5 10.12 10.62 9 12 9ZM12 7C9.52 7 7.5 9.02 7.5 11.5C7.5 13.98 9.52 16 12 16C14.48 16 16.5 13.98 16.5 11.5C16.5 9.02 14.48 7 12 7Z"
+                fill="#285D9A"
+            />
+        </g>
+        <defs>
+            <clipPath id="clip0_117_11573">
+                <rect width="24" height="24" fill="white" />
+            </clipPath>
+        </defs>
+    </svg>
+);
+
+export const VisibilityOffIcon = ({ className, width = '24', height = '24' }) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_117_11576)">
+            <path
+                d="M12 6.00001C15.79 6.00001 19.17 8.13001 20.82 11.5C20.23 12.72 19.4 13.77 18.41 14.62L19.82 16.03C21.21 14.8 22.31 13.26 23 11.5C21.27 7.11001 17 4.00001 12 4.00001C10.73 4.00001 9.51 4.20001 8.36 4.57001L10.01 6.22001C10.66 6.09001 11.32 6.00001 12 6.00001ZM10.93 7.14001L13 9.21001C13.57 9.46001 14.03 9.92001 14.28 10.49L16.35 12.56C16.43 12.22 16.49 11.86 16.49 11.49C16.5 9.01001 14.48 7.00001 12 7.00001C11.63 7.00001 11.28 7.05001 10.93 7.14001ZM2.01 3.87001L4.69 6.55001C3.06 7.83001 1.77 9.53001 1 11.5C2.73 15.89 7 19 12 19C13.52 19 14.98 18.71 16.32 18.18L19.74 21.6L21.15 20.19L3.42 2.45001L2.01 3.87001ZM9.51 11.37L12.12 13.98C12.08 13.99 12.04 14 12 14C10.62 14 9.5 12.88 9.5 11.5C9.5 11.45 9.51 11.42 9.51 11.37ZM6.11 7.97001L7.86 9.72001C7.63 10.27 7.5 10.87 7.5 11.5C7.5 13.98 9.52 16 12 16C12.63 16 13.23 15.87 13.77 15.64L14.75 16.62C13.87 16.86 12.95 17 12 17C8.21 17 4.83 14.87 3.18 11.5C3.88 10.07 4.9 8.89001 6.11 7.97001Z"
+                fill="#285D9A"
+            />
+        </g>
+        <defs>
+            <clipPath id="clip0_117_11576">
+                <rect width="24" height="24" fill="white" />
+            </clipPath>
+        </defs>
+    </svg>
+);
+
+export const CancelIcon = ({ className, width = '24', height = '24' }) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_117_11579)">
+            <path
+                d="M12 2C6.47 2 2 6.47 2 12C2 17.53 6.47 22 12 22C17.53 22 22 17.53 22 12C22 6.47 17.53 2 12 2ZM12 20C7.59 20 4 16.41 4 12C4 7.59 7.59 4 12 4C16.41 4 20 7.59 20 12C20 16.41 16.41 20 12 20ZM15.59 7L12 10.59L8.41 7L7 8.41L10.59 12L7 15.59L8.41 17L12 13.41L15.59 17L17 15.59L13.41 12L17 8.41L15.59 7Z"
+                fill="#285D9A"
+            />
+        </g>
+        <defs>
+            <clipPath id="clip0_117_11579">
+                <rect width="24" height="24" fill="white" />
+            </clipPath>
+        </defs>
+    </svg>
+);
+
+export const DeleteIcon = ({ className, width = '24', height = '24' }) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_117_11562)">
+            <path
+                d="M14.12 10.47L12 12.59L9.87 10.47L8.46 11.88L10.59 14L8.47 16.12L9.88 17.53L12 15.41L14.12 17.53L15.53 16.12L13.41 14L15.53 11.88L14.12 10.47ZM15.5 4L14.5 3H9.5L8.5 4H5V6H19V4H15.5ZM6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7H6V19ZM8 9H16V19H8V9Z"
+                fill="#285D9A"
+            />
+        </g>
+        <defs>
+            <clipPath id="clip0_117_11562">
+                <rect width="24" height="24" fill="white" />
+            </clipPath>
+        </defs>
+    </svg>
+);
+
+export const MailIcon = ({ className, width = '24', height = '24' }) => (
+    <svg width="24" height="24" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M0.87868 1.37868C0 2.25736 0 3.67157 0 6.5V8.5C0 11.3284 0 12.7426 0.87868 13.6213C1.75736 14.5 3.17157 14.5 6 14.5H12C14.8284 14.5 16.2426 14.5 17.1213 13.6213C18 12.7426 18 11.3284 18 8.5V6.5C18 3.67157 18 2.25736 17.1213 1.37868C16.2426 0.5 14.8284 0.5 12 0.5H6C3.17157 0.5 1.75736 0.5 0.87868 1.37868ZM3.5547 3.66795C3.09517 3.3616 2.4743 3.48577 2.16795 3.9453C1.8616 4.40483 1.98577 5.0257 2.4453 5.33205L7.8906 8.96225C8.5624 9.41012 9.4376 9.41012 10.1094 8.96225L15.5547 5.33205C16.0142 5.0257 16.1384 4.40483 15.8321 3.9453C15.5257 3.48577 14.9048 3.3616 14.4453 3.66795L9 7.29815L3.5547 3.66795Z"
+            fill="#285D9A"
+        />
+    </svg>
+);
+
+export const PencilIcon = ({ className, width = '24', height = '24' }) => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_160_529)">
+            <g filter="url(#filter0_d_160_529)">
+                <path
+                    d="M3 17.25V21H6.75L17.81 9.94L14.06 6.19L3 17.25ZM5.92 19H5V18.08L14.06 9.02L14.98 9.94L5.92 19ZM20.71 5.63L18.37 3.29C18.17 3.09 17.92 3 17.66 3C17.4 3 17.15 3.1 16.96 3.29L15.13 5.12L18.88 8.87L20.71 7.04C21.1 6.65 21.1 6.02 20.71 5.63Z"
+                    fill="#285D9A"
+                />
+                <path
+                    d="M5.92 19.5H6.12711L6.27355 19.3536L15.3336 10.2936L15.6871 9.94L15.3336 9.58645L14.4136 8.66645L14.06 8.31289L13.7064 8.66645L4.64645 17.7264L4.5 17.8729V18.08V19V19.5H5H5.92ZM6.54289 20.5H3.5V17.4571L14.06 6.89711L17.1029 9.94L6.54289 20.5ZM18.0164 3.64355L20.3564 5.98355C20.5512 6.17829 20.5512 6.49171 20.3564 6.68645L18.88 8.16289L15.8371 5.12L17.3136 3.64355C17.4082 3.54892 17.5303 3.5 17.66 3.5C17.799 3.5 17.9181 3.54522 18.0164 3.64355Z"
+                    stroke="#285D9A"
+                />
+            </g>
+        </g>
+        <defs>
+            <filter
+                id="filter0_d_160_529"
+                x="-1"
+                y="3"
+                width="26.0024"
+                height="26"
+                filterUnits="userSpaceOnUse"
+                color-interpolation-filters="sRGB"
+            >
+                <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                <feColorMatrix
+                    in="SourceAlpha"
+                    type="matrix"
+                    values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha"
+                />
+                <feOffset dy="4" />
+                <feGaussianBlur stdDeviation="2" />
+                <feComposite in2="hardAlpha" operator="out" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_160_529" />
+                <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_160_529" result="shape" />
+            </filter>
+            <clipPath id="clip0_160_529">
+                <rect width="24" height="24" fill="white" />
+            </clipPath>
+        </defs>
+    </svg>
+);

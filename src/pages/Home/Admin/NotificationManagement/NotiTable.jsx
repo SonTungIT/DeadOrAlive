@@ -1,6 +1,23 @@
 import React from 'react';
 import { HorizontalIcon } from '~/components/Layout/components/Icons';
 import '../UserAccounts/Table.scss';
+import { MailIcon, PencilIcon, DeleteIcon } from '~/components/Layout/components/Icons';
+import Menu from '~/components/Popper/Menu';
+
+const MENU_ITEMS = [
+    {
+        icon: <MailIcon />,
+        title: ' Send Users',
+    },
+    {
+        icon: <PencilIcon />,
+        title: 'Edit Notification',
+    },
+    {
+        icon: <DeleteIcon />,
+        title: 'Delete Notification',
+    },
+];
 
 function NotiTable(props) {
     return (
@@ -24,7 +41,11 @@ function NotiTable(props) {
                         <td>{row.type}</td>
                         <td>{row.createDate}</td>
                         <td>
-                            <HorizontalIcon />
+                            <Menu items={MENU_ITEMS}>
+                                <button>
+                                    <HorizontalIcon />
+                                </button>
+                            </Menu>
                         </td>
                     </tr>
                 ))}

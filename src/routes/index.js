@@ -9,6 +9,7 @@ import NewsManagement from '~/pages/Home/Admin/NewsManagement/NewsManagement';
 import GameManagement from '~/pages/Home/Admin/GameManagement/GameManagement';
 import ShopManagement from '~/pages/Home/Admin/ShopManagement/ShopManagement';
 import { DefaultLayout } from '~/components/Layout';
+import EditNews from '~/pages/Home/Admin/NewsManagement/EditNews';
 
 const publicRoutes = [
     { path: config.routes.login, component: Login, layout: null },
@@ -22,6 +23,9 @@ const publicRoutes = [
     { path: config.routes.newsManagement, component: NewsManagement, layout: DefaultLayout },
     { path: config.routes.gameManagement, component: GameManagement, layout: DefaultLayout },
     { path: config.routes.shopManagement, component: ShopManagement, layout: DefaultLayout },
+
+    //News
+    { path: config.routes.editNews, component: EditNews, layout: DefaultLayout },
 ];
 
 const privateRoutes = [];

@@ -11,10 +11,16 @@ import './Login.scss';
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(email);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Perform login authentication with fake data
+        if (email === 'admin@gmail.com' && password === 'admin123456') {
+            navigate('/');
+        } else {
+            setErrorMessage('Invalid email or password');
+        }
     };
     //Cong add
     const [value, setValue] = useState('');
@@ -66,26 +72,29 @@ function Login() {
                 <div className="logo-game">
                     <div className="auth-form-container">
                         <h2>ĐĂNG NHẬP</h2>
-                        <form className="login-form" onSubmit={handleFormSubmit}>
-                            <input
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                type="email"
-                                placeholder="TÊN NGƯỜI DÙNG"
-                                id="email"
-                                name="email"
-                            />
-                            <input
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                type="password"
-                                placeholder="MẬT KHẨU"
-                                id="password"
-                                name="password"
-                            />
-                            <button className="btn-icon-arrow" type="submit">
-                                {/* <Link className="link-btn" to={config.routes.information}></Link> */}
-                            </button>
+                        {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
+                        <form className="login-form" onSubmit={handleSubmit}>
+                            <label>
+                                <input
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    type="email"
+                                    placeholder="TÊN NGƯỜI DÙNG"
+                                    id="email"
+                                    name="email"
+                                />
+                            </label>
+                            <label>
+                                <input
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    type="password"
+                                    placeholder="MẬT KHẨU"
+                                    id="password"
+                                    name="password"
+                                />
+                            </label>
+                            <button className="btn-icon-arrow" type="submit"></button>
                             <button onClick={signWithGoogle}>
                                 <Link className="google-btn" to={config.routes.user}></Link>
                             </button>

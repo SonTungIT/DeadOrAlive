@@ -1,46 +1,42 @@
 import React from 'react';
 import { HorizontalIcon } from '~/components/Layout/components/Icons';
-import './Table.scss';
+import '../UserAccounts/Table.scss';
+import { PencilIcon, DeleteIcon } from '~/components/Layout/components/Icons';
 import Menu from '~/components/Popper/Menu';
-import { VisibilityIcon, VisibilityOffIcon, CancelIcon, DeleteIcon } from '~/components/Layout/components/Icons';
+import config from '~/config';
 
 const MENU_ITEMS = [
     {
-        icon: <VisibilityIcon />,
-        title: 'Active User',
-    },
-    {
-        icon: <VisibilityOffIcon />,
-        title: 'Inactive User',
-    },
-    {
-        icon: <CancelIcon />,
-        title: 'Block User',
+        icon: <PencilIcon />,
+        title: 'Edit News',
+        to: config.routes.editNews,
     },
     {
         icon: <DeleteIcon />,
-        title: 'Delete User',
+        title: 'Delete News',
     },
 ];
 
-function Table(props) {
+function ShopTable(props) {
     return (
         <table>
             <thead>
                 <tr>
-                    <th>User Name</th>
-                    <th>Full Name</th>
-                    <th>Avatar</th>
-                    <th>Status</th>
+                    <th>ID</th>
+                    <th>Tên Items</th>
+                    <th>Images</th>
+                    <th>Loại</th>
+                    <th>Trạng Thái</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 {props.data.map((row, index) => (
                     <tr key={index}>
-                        <td>{row.userName}</td>
-                        <td>{row.fullName}</td>
-                        <td>{row.avatar}</td>
+                        <td>{row.id}</td>
+                        <td>{row.name}</td>
+                        <td>{row.image}</td>
+                        <td>{row.type}</td>
                         <td>{row.status}</td>
                         <td>
                             <Menu items={MENU_ITEMS}>
@@ -56,4 +52,4 @@ function Table(props) {
     );
 }
 
-export default Table;
+export default ShopTable;
