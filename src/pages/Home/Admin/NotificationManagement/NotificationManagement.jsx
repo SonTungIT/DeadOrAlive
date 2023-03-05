@@ -13,6 +13,7 @@ const cx = classNames.bind(styles);
 function NotificationManagement() {
     const data = [
         { id: '1', title: 'Đánh slime', details: 'Tiêu diệt 3 con slime', type: 'kiếm súng', createDate: 'Active' },
+        { id: '1', title: 'Đánh slime', details: 'Tiêu diệt 3 con slime', type: 'kiếm súng', createDate: 'Active' },
     ];
 
     const [openModal, setOpenModal] = useState(false);

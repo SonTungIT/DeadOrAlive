@@ -46,4 +46,21 @@
     color: var(--white);
     font-size: 1.2rem;
     background-color: var(--common);
+
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #305e55;
+    }
+}
+
+.large {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    background-color: #f1f1f1;
+    border-radius: 15px;
+    box-shadow: 0px 2px 1px 1px #999999;
+
+    &:hover {
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #ece3e3d6;
+    }
 }

@@ -9,17 +9,17 @@ import { authService } from '~/service/authService';
 import './Login.scss';
 
 function Login() {
-    const [email, setEmail] = useState('');
+    const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
         // Perform login authentication with fake data
-        if (email === 'admin@gmail.com' && password === 'admin123456') {
+        if (username === 'admin' && password === 'admin123456') {
             navigate('/');
         } else {
-            setErrorMessage('Invalid email or password');
+            setErrorMessage('Invalid username or password');
         }
     };
     //Cong add
@@ -54,8 +54,8 @@ function Login() {
             password: Yup.string().required(),
         });
         try {
-            await loginSchema.validate({ email, password });
-            const response = await axios.post('/api/login', { email, password });
+            await loginSchema.validate({ username, password });
+            const response = await axios.post('/api/login', { username, password });
             localStorage.setItem('token', response.data.token);
             // Redirect to the authenticated page
             <Link to={config.routes.home}></Link>;
@@ -76,12 +76,12 @@ function Login() {
                         <form className="login-form" onSubmit={handleSubmit}>
                             <label>
                                 <input
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    type="email"
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
+                                    type="username"
                                     placeholder="TÊN NGƯỜI DÙNG"
-                                    id="email"
-                                    name="email"
+                                    id="username"
+                                    name="username"
                                 />
                             </label>
                             <label>

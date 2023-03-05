@@ -11,6 +11,9 @@ import ShopManagement from '~/pages/Home/Admin/ShopManagement/ShopManagement';
 import { DefaultLayout } from '~/components/Layout';
 import EditNews from '~/pages/Home/Admin/NewsManagement/EditNews';
 
+//import Game
+import FirstGame from '~/pages/Home/Admin/GameManagement/GameDetails/FirstGame';
+
 const publicRoutes = [
     { path: config.routes.login, component: Login, layout: null },
     { path: config.routes.register, component: Register, layout: null },
@@ -26,6 +29,9 @@ const publicRoutes = [
 
     //News
     { path: config.routes.editNews, component: EditNews, layout: DefaultLayout },
+
+    //Game
+    { path: config.routes.game1, component: FirstGame, layout: DefaultLayout },
 ];
 
 const privateRoutes = [];
