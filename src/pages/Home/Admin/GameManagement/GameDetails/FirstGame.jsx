@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import styles from './FirstGame.scss';
 import LayoutAdmin from '../../LayoutAdmin';
 import Button from '~/components/Layout/components/Button';
+import config from '~/config';
 
 const cx = classNames.bind(styles);
 
@@ -57,8 +58,10 @@ function FirstGame() {
                         </form>
                     </div>
                 </div>
-                <div className={cx('footer')}>
-                    <Button large>QUẢN LÝ SERVER</Button>
+                <div className={cx('footer-game')}>
+                    <Button to={config.routes.serverGame} large>
+                        QUẢN LÝ SERVER
+                    </Button>
                 </div>
             </LayoutAdmin>
         </div>

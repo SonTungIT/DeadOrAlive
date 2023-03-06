@@ -17,6 +17,8 @@ function Login() {
         event.preventDefault();
         // Perform login authentication with fake data
         if (username === 'admin' && password === 'admin123456') {
+            navigate('/user_management');
+        } else if (username === 'sontung' && password === 'sontung123456') {
             navigate('/');
         } else {
             setErrorMessage('Invalid username or password');
@@ -58,7 +60,7 @@ function Login() {
             const response = await axios.post('/api/login', { username, password });
             localStorage.setItem('token', response.data.token);
             // Redirect to the authenticated page
-            <Link to={config.routes.home}></Link>;
+            <Link to={config.routes.userManagement}></Link>;
         } catch (error) {
             console.error(error);
             // Display error message to user

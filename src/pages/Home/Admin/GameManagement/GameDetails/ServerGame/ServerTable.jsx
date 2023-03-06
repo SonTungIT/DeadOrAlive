@@ -1,32 +1,30 @@
 import React from 'react';
 import { HorizontalIcon } from '~/components/Layout/components/Icons';
-import '../UserAccounts/Table.scss';
-import { PencilIcon, DeleteIcon } from '~/components/Layout/components/Icons';
+import './ServerTable.scss';
 import Menu from '~/components/Popper/Menu';
-import config from '~/config';
+import { PencilIcon, DeleteIcon } from '~/components/Layout/components/Icons';
 
 const MENU_ITEMS = [
     {
         icon: <PencilIcon />,
-        title: 'Edit Items',
-        to: config.routes.editNews,
+        title: 'Edit Server',
     },
     {
         icon: <DeleteIcon />,
-        title: 'Delete Items',
+        title: 'Delete Server',
     },
 ];
 
-function ShopTable(props) {
+function ServerTable(props) {
     return (
         <table>
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Tên Items</th>
-                    <th>Images</th>
-                    <th>Loại</th>
-                    <th>Trạng Thái</th>
+                    <th>Tên máy chủ</th>
+                    <th>Ngày tạo</th>
+                    <th>Ngày cập nhật</th>
+                    <th>Trạng thái</th>
                     <th></th>
                 </tr>
             </thead>
@@ -34,9 +32,9 @@ function ShopTable(props) {
                 {props.data.map((row, index) => (
                     <tr key={index}>
                         <td>{row.id}</td>
-                        <td>{row.name}</td>
-                        <td>{row.image}</td>
-                        <td>{row.type}</td>
+                        <td>{row.nameServer}</td>
+                        <td>{row.createDate}</td>
+                        <td>{row.updateDate}</td>
                         <td>{row.status}</td>
                         <td>
                             <Menu items={MENU_ITEMS}>
@@ -52,4 +50,4 @@ function ShopTable(props) {
     );
 }
 
-export default ShopTable;
+export default ServerTable;

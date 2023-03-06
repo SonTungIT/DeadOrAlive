@@ -7,7 +7,7 @@ const routes = {
     information: '/information',
 
     //Admin
-    // userManagement: '/user_management',
+    userManagement: '/user_management',
     taskManagement: '/admin/task_management',
     notificationManagement: '/admin/notification_management',
     newsManagement: '/admin/news_management',
@@ -24,6 +24,7 @@ const routes = {
     game4: '/game_4',
     game5: '/game_5',
     game6: '/game_6',
+    serverGame: '/game_1/server_game',
 
     user: '/user',
 };
