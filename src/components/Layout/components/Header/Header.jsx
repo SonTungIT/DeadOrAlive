@@ -1,9 +1,10 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
-import images from '~/assets/images';
 import { Link } from 'react-router-dom';
 import config from '~/config';
+import logo from '~/images/DOA-3.png';
+import Button from '../Button';
 
 const cx = classNames.bind(styles);
 
@@ -11,7 +12,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img alt="Logo" />
+                <Button to={config.routes.home} className={cx('logo')}>
+                    <img alt="Logo" src={logo} />
+                </Button>
                 <div className={cx('content')}>
                     <img
                         className={cx('user-avatar')}

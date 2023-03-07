@@ -12,6 +12,7 @@ import ShopManagement from '~/pages/Home/Admin/ShopManagement/ShopManagement';
 import { DefaultLayout } from '~/components/Layout';
 import EditNews from '~/pages/Home/Admin/NewsManagement/EditNews';
 import ServerGame from '~/pages/Home/Admin/GameManagement/GameDetails/ServerGame/ServerGame';
+import UserLayout from '~/components/Layout/UserLayout';
 
 import User from '~/pages/Home/User/User';
 
@@ -39,7 +40,7 @@ const publicRoutes = [
     { path: config.routes.serverGame, component: ServerGame, layout: DefaultLayout },
 
     //User
-    { path: config.routes.home, component: User, layout: null },
+    { path: config.routes.home, component: User, layout: UserLayout },
 ];
 
 const privateRoutes = [];

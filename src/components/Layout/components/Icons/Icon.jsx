@@ -209,12 +209,12 @@ export const ShopIcon = ({ className, width = '24', height = '24' }) => (
     </svg>
 );
 
-export const ArrowDownIcon = ({ className, width = '24', height = '31' }) => (
+export const ArrowDownIcon = ({ className, width = '24', height = '40' }) => (
     <svg
         className={className}
         width={width}
         height={height}
-        viewBox="0 0 24 31"
+        viewBox="0 0 24 50"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
     >
