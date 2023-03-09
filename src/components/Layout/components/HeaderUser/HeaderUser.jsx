@@ -4,21 +4,33 @@ import styles from './HeaderUser.module.scss';
 import { Link } from 'react-router-dom';
 import config from '~/config';
 import Button from '../Button';
-import { ArrowDownIcon } from '../Icons';
+import { ArrowDownIcon, LanguageIcon } from '../Icons';
 import logo from '~/images/DOA-3.png';
-import Menu from '~/components/Popper/Menu';
+import MenuUser from '~/components/PopperUser/MenuUser';
 
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
     {
-        title: 'English',
+        title: 'Tất Cả',
     },
     {
-        title: 'Feedback and help',
+        title: 'Cập Nhật Trò Chơi',
     },
     {
-        title: 'Keyboard shortcuts',
+        title: 'Esports',
+    },
+];
+
+const MENU_ACCOUNTS = [
+    {
+        title: 'Tải Trò Chơi',
+    },
+    {
+        title: 'Cài Đặt',
+    },
+    {
+        title: 'Đăng Xuất',
     },
 ];
 
@@ -30,11 +42,13 @@ function HeaderUser() {
                     <img alt="Logo" src={logo} />
                 </Button>
                 <div className={cx('user-content')}>
-                    <Menu items={MENU_ITEMS}>
-                        <Button textbox rightIcon={<ArrowDownIcon />}>
-                            TIN TỨC
-                        </Button>
-                    </Menu>
+                    <MenuUser items={MENU_ITEMS}>
+                        <div>
+                            <Button textbox rightIcon={<ArrowDownIcon />}>
+                                <span>TIN TỨC</span>
+                            </Button>
+                        </div>
+                    </MenuUser>
 
                     <Button textbox>HỖ TRỢ</Button>
                 </div>
@@ -45,7 +59,16 @@ function HeaderUser() {
                         alt="avatar"
                     /> */}
                     <div className={cx('name')}>
-                        <span className={cx('user-name')}>Le Son Tung</span>
+                        <Button className={cx('icon-name')}>
+                            <LanguageIcon />
+                        </Button>
+                        <MenuUser items={MENU_ACCOUNTS}>
+                            <div>
+                                <Button accountName rightIcon={<ArrowDownIcon />}>
+                                    <span className={cx('user-name')}>Anh Trường Faker</span>
+                                </Button>
+                            </div>
+                        </MenuUser>
                         {/* <Link className={cx('logout')} to={config.routes.login}>
                             Log out
                         </Link> */}

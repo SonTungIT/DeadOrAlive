@@ -1,0 +1,18 @@
+@use '../../../styles/' as *;
+
+.user-wapper {
+    @include flex(center, unset, column);
+
+    .user-container {
+        width: 100%;
+        display: flex;
+        background-image: url('https://t3.ftcdn.net/jpg/04/54/87/22/360_F_454872267_I9JE08kJoqNBA5Qozmvf0RgJ0CIiHvQ4.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+        .user-content {
+            flex: 1;
+            // padding-bottom: 50px;
+        }
+    }
+}

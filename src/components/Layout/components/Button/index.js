@@ -15,6 +15,7 @@ function Button({
     disabled = false,
     small = false,
     large = false,
+    accountName = false,
     children,
     className,
     leftIcon,
@@ -54,6 +55,7 @@ function Button({
         disabled,
         small,
         large,
+        accountName,
     });
 
     return (

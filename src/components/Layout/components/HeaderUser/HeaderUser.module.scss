@@ -22,6 +22,22 @@
         align-items: center;
         flex: 1;
         margin-left: 40px;
+
+        // .text-box {
+        //     color: white;
+        //     display: flex;
+        //     justify-content: center;
+        //     align-items: center;
+        //     font-size: 0.8rem;
+        //     height: 38px;
+        //     text-decoration: none;
+        //     font-weight: 600;
+        //     background-color: transparent;
+
+        //     &:hover {
+        //         background: rgb(128, 128, 128, 0.3);
+        //     }
+        // }
     }
 
     .user-footer {
@@ -38,21 +54,26 @@
         }
 
         .name {
-            @include flex(flex-start, unset, column);
-            padding: 0px;
-            gap: 5px;
-            width: fit-content;
-            height: 45px;
+            @include flex(center, unset, unset);
+
+            .icon-name {
+                width: 36px;
+                height: 36px;
+                padding: 0;
+                margin: 0;
+                margin-right: 8px;
+                min-width: 0;
+                background-color: transparent;
+                vertical-align: middle;
+
+                &:hover {
+                    background-color: rgba(128, 128, 128, 0.3);
+                }
+            }
 
             .user-name {
                 font-weight: 700;
-                font-size: 16px;
-                line-height: 21px;
-            }
-
-            .logout {
-                font-weight: 400;
-                font-size: 16px;
+                font-size: 14px;
                 line-height: 21px;
             }
         }

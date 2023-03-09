@@ -1,0 +1,12 @@
+.wrapperUser {
+    width: 100%;
+    color: #2a4365;
+    font-weight: 600;
+    max-height: min((100vh - 96px) - 60px, 734px);
+    min-height: 100px;
+    padding-top: 8px;
+    border-radius: 3px;
+    border-top: 5px solid red;
+    background: #292929;
+    box-shadow: 0px 4px 16px 0px rgb(0 0 0 / 20%);
+}

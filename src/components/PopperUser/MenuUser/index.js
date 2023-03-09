@@ -1,14 +1,14 @@
 import classNames from 'classnames/bind';
-import styles from './Menu.module.scss';
-import { Wrapper as PopperWrapper } from '~/components/Popper/';
+import styles from './MenuUser.module.scss';
+import { WrapperUser as PopperWrapper } from '~/components/PopperUser';
 import Tippy from '@tippyjs/react/headless';
-import MenuItem from './MenuItem';
+import MenuUserItem from './MenuUserItem';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [] }) {
+function MenuUser({ children, items = [] }) {
     const renderItems = () => {
-        return items.map((item, index) => <MenuItem key={index} data={item} />);
+        return items.map((item, index) => <MenuUserItem key={index} data={item} />);
     };
     return (
         <Tippy
@@ -26,4 +26,4 @@ function Menu({ children, items = [] }) {
     );
 }
 
-export default Menu;
+export default MenuUser;
