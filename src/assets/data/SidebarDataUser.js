@@ -1,12 +1,13 @@
-import { AccountUserIcon, ArrowDownIcon, ArrowLeftIcon } from '~/components/Layout/components/Icons';
+import { AccountUserIcon, ArrowDownIcon, ArrowLeftIcon, KeyIcon } from '~/components/Layout/components/Icons';
 import config from '~/config';
 
 export const SidebarDataUser = [
     {
-        title: 'TÀI KHOẢN USER',
-        path: config.routes.userManagement,
+        title: 'THÔNG TIN CÁ NHÂN',
         icon: <AccountUserIcon />,
-        iconClosed: <ArrowDownIcon />,
-        iconOpened: <ArrowLeftIcon />,
+    },
+    {
+        title: 'ĐĂNG NHẬP TÀI KHOẢN DOS',
+        icon: <KeyIcon />,
     },
 ];

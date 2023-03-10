@@ -7,7 +7,7 @@ import UserLayout from '~/components/Layout/UserLayout';
 const cx = classNames.bind(styles);
 
 function User({ children }) {
-    return <UserLayout></UserLayout>;
+    return <div className={cx('user-content')}>son tung</div>;
 }
 
 export default User;

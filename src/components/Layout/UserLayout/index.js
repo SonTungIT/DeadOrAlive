@@ -13,7 +13,7 @@ function UserLayout({ children }) {
             <div className={cx('user-container')}>
                 <div className={cx('user-inner')}>
                     <SidebarUser />
-                    {/* <div className={cx('user-content')}>{children}</div> */}
+                    <div className={cx('user-content')}>{children}</div>
                 </div>
             </div>
             {/* <Footer /> */}

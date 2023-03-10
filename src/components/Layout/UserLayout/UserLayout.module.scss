@@ -6,10 +6,18 @@
     .user-container {
         width: 100%;
         display: flex;
+        justify-content: center;
         background-image: url('https://t3.ftcdn.net/jpg/04/54/87/22/360_F_454872267_I9JE08kJoqNBA5Qozmvf0RgJ0CIiHvQ4.jpg');
-        background-size: 100%;
+        background-size: 150%;
         background-repeat: no-repeat;
 
+        .user-inner {
+            height: 100%;
+            width: 1200px;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+        }
         .user-content {
             flex: 1;
             // padding-bottom: 50px;

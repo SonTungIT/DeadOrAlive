@@ -20,7 +20,7 @@ import User from '~/pages/Home/User/User';
 import FirstGame from '~/pages/Home/Admin/GameManagement/GameDetails/FirstGame';
 
 const publicRoutes = [
-    { path: config.routes.login, component: Login, layout: null },
+    { path: config.routes.home, component: Login, layout: null },
     { path: config.routes.register, component: Register, layout: null },
     { path: config.routes.information, component: Info, layout: null },
 
@@ -40,7 +40,7 @@ const publicRoutes = [
     { path: config.routes.serverGame, component: ServerGame, layout: DefaultLayout },
 
     //User
-    { path: config.routes.home, component: User, layout: UserLayout },
+    // { path: config.routes.home, component: User, layout: UserLayout },
 ];
 
 const privateRoutes = [];

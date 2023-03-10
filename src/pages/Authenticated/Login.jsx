@@ -13,17 +13,17 @@ function Login() {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Perform login authentication with fake data
-        if (username === 'admin' && password === 'admin123456') {
-            navigate('/user_management');
-        } else if (username === 'sontung' && password === 'sontung123456') {
-            navigate('/');
-        } else {
-            setErrorMessage('Invalid username or password');
-        }
-    };
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
+    //     // Perform login authentication with fake data
+    //     if (username === 'admin' && password === 'admin123456') {
+    //         navigate('/user_management');
+    //     } else if (username === 'sontung' && password === 'sontung123456') {
+    //         navigate('/');
+    //     } else {
+    //         setErrorMessage('Invalid username or password');
+    //     }
+    // };
     //Cong add
     const [value, setValue] = useState('');
     const handleClick = () => {
@@ -51,16 +51,15 @@ function Login() {
     //login form
     const handleFormSubmit = async (event) => {
         event.preventDefault();
-        const loginSchema = Yup.object().shape({
-            email: Yup.string().email().required(),
-            password: Yup.string().required(),
-        });
         try {
-            await loginSchema.validate({ username, password });
-            const response = await axios.post('/api/login', { username, password });
-            localStorage.setItem('token', response.data.token);
+            const response = await axios.post('https://game-rpg.herokuapp.com/api/v1/auth/login', {
+                username,
+                password,
+            });
+            const { token } = response.data.accessToken;
+            localStorage.setItem('token', token);
             // Redirect to the authenticated page
-            <Link to={config.routes.userManagement}></Link>;
+            window.location.href = '/';
         } catch (error) {
             console.error(error);
             // Display error message to user
@@ -75,12 +74,12 @@ function Login() {
                     <div className="auth-form-container">
                         <h2>ĐĂNG NHẬP</h2>
                         {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
-                        <form className="login-form" onSubmit={handleSubmit}>
+                        <form className="login-form" onSubmit={handleFormSubmit}>
                             <label>
                                 <input
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
-                                    type="username"
+                                    type="text"
                                     placeholder="TÊN NGƯỜI DÙNG"
                                     id="username"
                                     name="username"

@@ -13,7 +13,7 @@ function SidebarUser() {
 
     return (
         <div className={openNavigation ? cx('sidebar', 'sidebar-respon') : cx('sidebar')}>
-            <div className={cx('top-bar')}>
+            {/* <div className={cx('top-bar')}>
                 {openNavigation ? (
                     <span onClick={toggleNavigation}>
                         <MenuCollapseIcon />
@@ -23,7 +23,8 @@ function SidebarUser() {
                         <MenuOpenIcon />
                     </span>
                 )}
-            </div>
+            </div> */}
+            <div className={cx('sidebar-title')}>Quản Lý Tài Khoản</div>
             {SidebarDataUser.map((item, index) => (
                 <SubMenuUser key={index} item={item} openNavigation={openNavigation} />
             ))}
