@@ -9,6 +9,10 @@ import Button from '../Button';
 const cx = classNames.bind(styles);
 
 function Header() {
+    const handleLogout = () => {
+        localStorage.clear();
+    };
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -23,7 +27,7 @@ function Header() {
                     />
                     <div className={cx('name')}>
                         <span className={cx('user-name')}>Le Son Tung</span>
-                        <Link className={cx('logout')} to={config.routes.login}>
+                        <Link onClick={handleLogout} className={cx('logout')} to={config.routes.home}>
                             Log out
                         </Link>
                     </div>

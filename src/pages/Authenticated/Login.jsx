@@ -12,6 +12,7 @@ function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
 
     // const handleSubmit = (event) => {
     //     event.preventDefault();
@@ -36,7 +37,7 @@ function Login() {
         setValue(localStorage.getItem('email'));
     });
     //token API
-    const navigate = useNavigate();
+
     const signWithGoogle = async () => {
         const token = await authService.loginWithGoogle();
         console.log('Token:', token);
@@ -56,13 +57,16 @@ function Login() {
                 username,
                 password,
             });
-            const { token } = response.data.accessToken;
-            localStorage.setItem('token', token);
+
+            localStorage.setItem('token', response.data.data.accessToken);
             // Redirect to the authenticated page
-            window.location.href = '/';
+            console.log(localStorage);
+            if (response.status === 202) {
+                navigate('/user_management');
+            }
         } catch (error) {
             console.error(error);
-            // Display error message to user
+            setErrorMessage('Invalid username or password');
         }
     };
 

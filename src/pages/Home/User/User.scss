@@ -1,6 +1,48 @@
+@use '../../../styles/' as *;
+
 .user-content {
     width: 864px;
+    color: #ebebeb;
     margin-left: 288px;
     min-height: 1003px;
-    // background-color: red;
+    // background-color: #333;
+
+    .user-info {
+        @include flex(unset, center, unset);
+
+        width: 100%;
+        margin-top: 80px;
+
+        .user-info-left {
+            @include flex(unset, unset, column);
+            background-color: #211e1f;
+            max-width: 20rem;
+            gap: 20px;
+            padding: 40px;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+
+            .info-title {
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            .info-content {
+                color: #999;
+                font-size: 14px;
+            }
+        }
+
+        .user-info-right {
+            padding: 40px;
+            background-color: #292727;
+            flex: 1;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+
+            .user-info-input {
+                @include flex(center, center, column);
+            }
+        }
+    }
 }

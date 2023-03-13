@@ -16,6 +16,9 @@ import UserLayout from '~/components/Layout/UserLayout';
 
 import User from '~/pages/Home/User/User';
 
+import React from 'react';
+import { Outlet, Navigate } from 'react-router-dom';
+
 //import Game
 import FirstGame from '~/pages/Home/Admin/GameManagement/GameDetails/FirstGame';
 
@@ -43,6 +46,9 @@ const publicRoutes = [
     // { path: config.routes.home, component: User, layout: UserLayout },
 ];
 
-const privateRoutes = [];
+const privateRoutes = () => {
+    const role = localStorage.getItem('user');
+    return role === 'admin' ? <Outlet /> : <Navigate to="/" />;
+};
 
 export { publicRoutes, privateRoutes };
