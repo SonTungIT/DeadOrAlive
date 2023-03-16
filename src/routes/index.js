@@ -43,7 +43,7 @@ const publicRoutes = [
     { path: config.routes.serverGame, component: ServerGame, layout: DefaultLayout },
 
     //User
-    // { path: config.routes.home, component: User, layout: UserLayout },
+    { path: config.routes.user, component: User, layout: UserLayout },
 ];
 
 const privateRoutes = () => {

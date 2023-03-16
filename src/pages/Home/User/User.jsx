@@ -18,11 +18,47 @@ function User({ children }) {
                 </div>
                 <div className={cx('user-info-right')}>
                     <div className={cx('user-info-input')}>
-                        <input placeholder="Địa chỉ email"></input>
-                        <div className={cx('user-info-details')}>
-                            <input placeholder="phone"></input>
-                            <input placeholder="ngày sinh"></input>
-                        </div>
+                        <form>
+                            <input className={cx('user-input-email')} placeholder="Địa chỉ email"></input>
+                            <div className={cx('user-info-details')}>
+                                <input className={cx('user-input')} placeholder="phone"></input>
+                                <input className={cx('user-input')} placeholder="ngày sinh"></input>
+                            </div>
+                            <button className={cx('user-savebtn')}>
+                                <span>LƯU THAY ĐỔI</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {/* đăng nhập tài khoản riots */}
+            <div className={cx('user-info')}>
+                <div className={cx('user-info-left')}>
+                    <span className={cx('info-title')}>Đăng Nhập Tài Khoản DOS</span>
+                    <span className={cx('info-content')}>
+                        Bạn nên thay đổi mật khẩu định kỳ để giảm thiểu khả năng tài khoản bị truy cập bởi kẻ gian.
+                    </span>
+                </div>
+                <div className={cx('user-info-right')}>
+                    <div className={cx('user-info-input')}>
+                        <form>
+                            <input className={cx('user-input-email')} placeholder="TÊN NGƯỜI DÙNG"></input>
+                            <span className={cx('user-changePwd')}>Đổi Mật Khẩu</span>
+                            <div className={cx('user-info-details-changePwd')}>
+                                <input
+                                    className={cx('user-input user-input-acc')}
+                                    placeholder="MẬT KHẨU HIỆN TẠI"
+                                ></input>
+                                <input className={cx('user-input user-input-acc')} placeholder="MẬT KHẨU MỚI"></input>
+                                <input
+                                    className={cx('user-input user-input-acc')}
+                                    placeholder="XÁC NHẬN MẬT KHẨU"
+                                ></input>
+                            </div>
+                            <button className={cx('user-savebtn')}>
+                                <span>LƯU THAY ĐỔI</span>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

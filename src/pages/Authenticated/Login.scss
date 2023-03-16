@@ -74,6 +74,7 @@ button {
 
 :hover.btn-icon-arrow {
     background-color: #1b3630;
+    // color: white;
 }
 
 .register {
@@ -121,4 +122,8 @@ button {
 
 :hover.link-btn {
     color: black;
+}
+
+.error-confirm {
+    color: red;
 }

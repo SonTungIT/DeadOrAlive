@@ -7,6 +7,7 @@ import Button from '../Button';
 import { ArrowDownIcon, LanguageIcon } from '../Icons';
 import logo from '~/images/DOA-3.png';
 import MenuUser from '~/components/PopperUser/MenuUser';
+import axios from 'axios';
 
 const cx = classNames.bind(styles);
 
@@ -53,11 +54,11 @@ function HeaderUser() {
                     <Button textbox>HỖ TRỢ</Button>
                 </div>
                 <div className={cx('user-footer')}>
-                    {/* <img
+                    <img
                         className={cx('user-avatar')}
                         src="https://i.pinimg.com/236x/e1/6c/70/e16c704fc0b655e553dd7a1a8a00475d.jpg"
                         alt="avatar"
-                    /> */}
+                    />
                     <div className={cx('name')}>
                         <Button className={cx('icon-name')}>
                             <LanguageIcon />

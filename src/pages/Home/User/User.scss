@@ -4,14 +4,14 @@
     width: 864px;
     color: #ebebeb;
     margin-left: 288px;
-    min-height: 1003px;
+    min-height: 875px;
     // background-color: #333;
 
     .user-info {
         @include flex(unset, center, unset);
 
         width: 100%;
-        margin-top: 80px;
+        margin-top: 50px;
 
         .user-info-left {
             @include flex(unset, unset, column);
@@ -34,6 +34,8 @@
         }
 
         .user-info-right {
+            @include flex(center, center, unset);
+
             padding: 40px;
             background-color: #292727;
             flex: 1;
@@ -42,7 +44,69 @@
 
             .user-info-input {
                 @include flex(center, center, column);
+                max-width: 400px;
+                ::placeholder {
+                    color: #999;
+                    font-weight: 700;
+                }
+            }
+
+            .user-input-email {
+                width: 100%;
+                border: 1px solid #84848453;
+                background-color: transparent;
+                color: #fff;
+                font-weight: 500;
+                font-size: 16px;
+            }
+
+            .user-info-details {
+                @include flex(center, space-between, unset);
+                gap: 20px;
+
+                .user-input {
+                    width: 50%;
+                    background-color: transparent;
+                    border: 1px solid #84848453;
+                    color: #f0f0f0;
+                    font-weight: 500;
+                    font-size: 16px;
+                }
+            }
+
+            .user-savebtn {
+                @include flex(center, center, unset);
+
+                background-color: transparent;
+                border: 1px solid #84848453;
+                color: #e8e8e8;
+                margin-top: 16px;
+                height: 30px;
+                width: 47%;
+                font-size: 14px;
+                margin-left: 53%;
+                padding: 10px;
+                border-radius: 5px;
             }
         }
+    }
+}
+
+.user-changePwd {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.user-info-details-changePwd {
+    @include flex(center, space-between, column);
+    margin-top: 20px;
+    .user-input {
+        width: 100%;
+        background-color: transparent;
+        border: 1px solid #84848453;
+        color: #f0f0f0;
+        font-weight: 500;
+        font-size: 16px;
+        border-radius: 3px;
     }
 }
