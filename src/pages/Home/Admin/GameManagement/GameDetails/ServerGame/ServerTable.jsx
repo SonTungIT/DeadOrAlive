@@ -1,4 +1,5 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import { HorizontalIcon } from '~/components/Layout/components/Icons';
 import './ServerTable.scss';
 import Menu from '~/components/Popper/Menu';
@@ -16,6 +17,21 @@ const MENU_ITEMS = [
 ];
 
 function ServerTable(props) {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        axios
+            // .get(`https://project-game-rpg.herokuapp.com/api/v1/gameServer/getAllGameServer?gameName=${products}`)
+            .get('https://project-game-rpg.herokuapp.com/api/v1/gameServer/getAllGameServer?gameName=Dead%20of%20souls')
+            .then((response) => {
+                setProducts(response.data);
+                console.log(response);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
+
     return (
         <table>
             <thead>

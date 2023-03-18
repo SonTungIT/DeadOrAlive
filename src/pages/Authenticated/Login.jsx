@@ -13,7 +13,14 @@ function Login() {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
-
+    var myHeaders = new Headers();
+    myHeaders.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
+    myHeaders.append('Cookie', 'JSESSIONID=D20497195C8F330A5CB7350A08C43C0B');
+    var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        redirect: 'follow',
+    };
     // const handleSubmit = (event) => {
     //     event.preventDefault();
     //     // Perform login authentication with fake data
@@ -60,8 +67,20 @@ function Login() {
 
             localStorage.setItem('token', response.data.data.accessToken);
             // Redirect to the authenticated page
-            console.log(localStorage);
             if (response.status === 202) {
+                fetch('https://project-game-rpg.herokuapp.com/api/v1/auth/validation', requestOptions)
+                    .then((response) => {
+                        console.log(response);
+                        if (response.ok) {
+                            return response.json();
+                        }
+                        throw new Error(response.status);
+                    })
+                    .then((result) => {
+                        console.log('result', result);
+                        localStorage.setItem('role', result.data.role.name);
+                    })
+                    .catch((error) => console.log('error', error));
                 navigate('/user_management');
             }
         } catch (error) {
