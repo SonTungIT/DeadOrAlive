@@ -8,6 +8,7 @@ import { ArrowDownIcon, LanguageIcon } from '../Icons';
 import logo from '~/images/DOA-3.png';
 import MenuUser from '~/components/PopperUser/MenuUser';
 import axios from 'axios';
+import { clear } from '@testing-library/user-event/dist/clear';
 
 const cx = classNames.bind(styles);
 
@@ -30,10 +31,11 @@ const MENU_ACCOUNTS = [
     {
         title: 'Cài Đặt',
     },
-    {
-        title: 'Đăng Xuất',
-    },
 ];
+
+const handleLogout = () => {
+    localStorage.clear();
+};
 
 function HeaderUser() {
     return (
@@ -70,9 +72,9 @@ function HeaderUser() {
                                 </Button>
                             </div>
                         </MenuUser>
-                        {/* <Link className={cx('logout')} to={config.routes.login}>
+                        <Link onClick={handleLogout} className={cx('logout')} to={config.routes.home}>
                             Log out
-                        </Link> */}
+                        </Link>
                     </div>
                 </div>
             </div>

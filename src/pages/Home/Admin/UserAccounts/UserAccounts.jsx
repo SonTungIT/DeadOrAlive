@@ -28,32 +28,6 @@ function UserAccounts() {
     const [data, setData] = useState([]);
     const [user, setUser] = useState([]);
 
-    var myHeaders = new Headers();
-    myHeaders.append('Authorization', 'Bearer ' + localStorage.getItem('token'));
-    myHeaders.append('Cookie', 'JSESSIONID=D20497195C8F330A5CB7350A08C43C0B');
-
-    var requestOptions = {
-        method: 'POST',
-        headers: myHeaders,
-        redirect: 'follow',
-    };
-
-    // const [pagination, setPagination] = useState({
-    //     _page: 1,
-    //     _limit: 10,
-    //     _totalRows: 1,
-    // });
-
-    // const [filter, setFilter] = useState({
-    //     _limit: 10,
-    //     _page: 1,
-    // });
-
-    function handlePageChange(newPage) {
-        console.log('New page: ', newPage);
-    }
-
-    console.log('localStorage.getItem', localStorage.getItem('role'));
     useEffect(() => {
         if (!localStorage.getItem('token')) {
             navigate('/');
