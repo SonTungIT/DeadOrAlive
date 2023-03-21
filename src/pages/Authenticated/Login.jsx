@@ -62,16 +62,6 @@ function Login() {
                     redirect: 'follow',
                 };
 
-                axios.interceptors.response.use(
-                    (response) => {
-                        response.headers['Access-Control-Allow-Origin'] = '*';
-                        return response;
-                    },
-                    (error) => {
-                        return Promise.reject(error);
-                    },
-                );
-
                 fetch('https://project-game-rpg.herokuapp.com/api/v1/auth/validation', requestOptions)
                     .then((response) => {
                         if (response.ok) {
