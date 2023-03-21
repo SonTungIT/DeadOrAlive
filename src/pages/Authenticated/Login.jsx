@@ -43,7 +43,7 @@ function Login() {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('https://game-rpg.herokuapp.com/api/v1/auth/login', {
+            const response = await axios.post('https://project-game-rpg.herokuapp.com/api/v1/auth/login', {
                 username,
                 password,
                 headers: {
