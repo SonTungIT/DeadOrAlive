@@ -46,6 +46,9 @@ function Login() {
             const response = await axios.post('https://game-rpg.herokuapp.com/api/v1/auth/login', {
                 username,
                 password,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
             });
 
             localStorage.setItem('token', response.data.data.accessToken);
