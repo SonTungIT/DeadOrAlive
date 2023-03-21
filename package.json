@@ -1,6 +1,8 @@
 {
     "name": "deadoralive",
     "version": "0.1.0",
+    "proxy": "https://project-game-rpg.herokuapp.com/swagger-ui/index.html?fbclid=IwAR0voiPpsI2Cxj1yScqpIPEsLJ49d66hV9V0BiRpKzbtIf3KpR76xZ_uFEM#/",
+    "homepage": "https://dead-or-alive-git-main-sontungit.vercel.app/",
     "private": true,
     "dependencies": {
         "@emotion/react": "^11.10.6",
