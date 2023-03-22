@@ -132,7 +132,7 @@ function Login() {
                                 }, 200000)
                             }}>
                                 {
-                                    loading ? <ClipLoader color={'#D0021B'} loading={loading} size={50}/> : ''
+                                    loading ? <ClipLoader className='loading-animation' color={'#be29cc'} loading={loading} size={50}/> : ''
                                 }
                             </button>
                             <button onClick={signWithGoogle}>
