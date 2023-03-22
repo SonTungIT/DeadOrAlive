@@ -7,12 +7,20 @@ import { auth, provider } from './firebase';
 import { signInWithPopup } from 'firebase/auth';
 import { authService } from '~/service/authService';
 import './Login.scss';
+import { ClipLoader } from 'react-spinners';
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false)
+    // useEffect(() => {
+    //     setLoading(true)
+    //     setTimeout(() => {
+    //         setLoading(false)
+    //     }, 5000)
+    // }, []);
 
     // const handleSubmit = (event) => {
     //     event.preventDefault();
@@ -54,7 +62,7 @@ function Login() {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('https://game-rpg.herokuapp.com/api/v1/auth/login', {
+            const response = await axios.post('https://project-game-rpg.herokuapp.com/api/v1/auth/login', {
                 username,
                 password,
             });
@@ -97,6 +105,7 @@ function Login() {
 
     return (
         <div className="Container">
+            {/* <div class="loader"></div> */}
             <div className="logo-game">
                 <img src="./images/DOA-3.png" alt="" />
                 <div className="logo-game">
@@ -124,20 +133,55 @@ function Login() {
                                     name="password"
                                 />
                             </label>
-                            <button className="btn-icon-arrow" type="submit"></button>
+                            <button className="btn-icon-arrow" type="submit" onClick={()=>{
+                                setLoading(true)
+                                setTimeout(()=>{
+                                    setLoading(false)
+                                }, 200000)
+                            }}>
+                                {
+                                    loading ? <ClipLoader color={'#D0021B'} loading={loading} size={50}/> : ''
+                                }
+                            </button>
                             <button onClick={signWithGoogle}>
                                 <Link className="google-btn" to={config.routes.user}></Link>
                             </button>
+                            
                         </form>
                         <button onClick={''}>
                             <Link className="link-btn" to={config.routes.register}>
                                 TẠO TÀI KHOẢN
                             </Link>
                         </button>
+                        
+                        {/* <div className="loader">
+                            <span login="--i:1;"></span>
+                            <span login="--i:2;"></span>
+                            <span login="--i:3;"></span>
+                            <span login="--i:4;"></span>
+                            <span login="--i:5;"></span>
+                            <span login="--i:6;"></span>
+                            <span login="--i:7;"></span>
+                            <span login="--i:8;"></span>
+                            <span login="--i:9;"></span>
+                            <span login="--i:10;"></span>
+                            <span login="--i:11;"></span>
+                            <span login="--i:12;"></span>
+                            <span login="--i:13;"></span>
+                            <span login="--i:14;"></span>
+                            <span login="--i:15;"></span>
+                            <span login="--i:16;"></span>
+                            <span login="--i:17;"></span>
+                            <span login="--i:18;"></span>
+                            <span login="--i:19;"></span>
+                            <span login="--i:20;"></span>
+                        </div> */}
+                        
                     </div>
                 </div>
             </div>
         </div>
+        
     );
 }
 

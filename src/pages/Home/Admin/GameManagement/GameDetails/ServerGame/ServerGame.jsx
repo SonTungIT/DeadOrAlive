@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './ServerGame.scss';
 import ServerTable from './ServerTable';
 // import Pagination from './Pagination';
 import { Pagination } from '@mui/material';
 import LayoutAdmin from '../../../LayoutAdmin';
+import productApi from '~/api/productApi';
 
 const cx = classNames.bind(styles);
 
@@ -32,6 +33,32 @@ function ServerGame() {
             status: 'Active',
         },
     ];
+
+    // useEffect(() => {
+    //     const fetchProducts = async () => {
+    //         const productList = await productApi.getAll();
+    //         console.log(productList);
+    //     };
+
+    //     fetchProducts();
+    // }, []);
+
+    var requestOptions = {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        redirect: 'follow',
+    };
+
+    fetch('https://game-rpg.herokuapp.com/api/v1/gameServer/getAllGameServer?gameName=Dead%20of%20souls', requestOptions)
+        .then((response) => {
+            if (response.ok) {
+                return console.log(response.json());
+            }
+            throw new Error(response.status);
+        })
+        .catch((error) => console.log('error', error));
 
     // const [pagination, setPagination] = useState({
     //     _page: 1,
