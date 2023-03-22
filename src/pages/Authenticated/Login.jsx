@@ -22,17 +22,6 @@ function Login() {
     //     }, 5000)
     // }, []);
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     // Perform login authentication with fake data
-    //     if (username === 'admin' && password === 'admin123456') {
-    //         navigate('/user_management');
-    //     } else if (username === 'sontung' && password === 'sontung123456') {
-    //         navigate('/');
-    //     } else {
-    //         setErrorMessage('Invalid username or password');
-    //     }
-    // };
     //Cong add
     const [value, setValue] = useState('');
     const handleClick = () => {
@@ -65,6 +54,9 @@ function Login() {
             const response = await axios.post('https://project-game-rpg.herokuapp.com/api/v1/auth/login', {
                 username,
                 password,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
             });
 
             localStorage.setItem('token', response.data.data.accessToken);

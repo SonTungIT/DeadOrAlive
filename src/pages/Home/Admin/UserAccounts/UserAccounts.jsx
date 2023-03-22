@@ -13,20 +13,8 @@ const cx = classNames.bind(styles);
 function UserAccounts() {
     const navigate = useNavigate();
 
-    // const data = [
-    //     { userName: 'tung@gmail.com', fullName: 'Le Son Tung', avatar: 'tung.jpg', status: 'Active' },
-    //     { userName: 'trung@gmail.com', fullName: 'Nguyen Thanh Trung', avatar: 'trung.jpg', status: 'Active' },
-    //     { userName: 'van@gmail.com', fullName: 'Pham Quang Van', avatar: 'van.jpg', status: 'Active' },
-    //     { userName: 'danh@gmail.com', fullName: 'Bui Cong Danh', avatar: 'danh.jpg', status: 'Active' },
-    //     { userName: 'cong@gmail.com', fullName: 'Tran Chi Cong', avatar: 'cong.jpg', status: 'Active' },
-    //     { userName: 'cong@gmail.com', fullName: 'Tran Chi Cong', avatar: 'cong.jpg', status: 'Active' },
-    //     { userName: 'cong@gmail.com', fullName: 'Tran Chi Cong', avatar: 'cong.jpg', status: 'Active' },
-    //     { userName: 'cong@gmail.com', fullName: 'Tran Chi Cong', avatar: 'cong.jpg', status: 'Active' },
-    //     { userName: 'cong@gmail.com', fullName: 'Tran Chi Cong', avatar: 'cong.jpg', status: 'Active' },
-    // ];
-
     const [data, setData] = useState([]);
-    const [user, setUser] = useState([]);
+    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         if (!localStorage.getItem('token')) {
@@ -34,6 +22,24 @@ function UserAccounts() {
             return;
         }
     }, []);
+
+    var requestOptions = {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        redirect: 'follow',
+    };
+
+    fetch('https://project-game-rpg.herokuapp.com/users/list', requestOptions)
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error(response.status);
+        })
+        .then((result) => {})
+        .catch((error) => console.log('error', error));
 
     return (
         <LayoutAdmin>
