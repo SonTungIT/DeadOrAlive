@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import styles from './ServerGame.scss';
 import ServerTable from './ServerTable';
@@ -6,70 +6,51 @@ import ServerTable from './ServerTable';
 import { Pagination } from '@mui/material';
 import LayoutAdmin from '../../../LayoutAdmin';
 import productApi from '~/api/productApi';
+import { useNavigate } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 function ServerGame() {
-    const data = [
-        {
-            id: 'game 1',
-            nameServer: 'Le Son Tung',
-            createDate: '6-3-2023',
-            updateDate: '6-3-2023',
-            status: 'Active',
-        },
-        {
-            id: 'game 2',
-            nameServer: 'Le Son Tung',
-            createDate: '6-3-2023',
-            updateDate: '6-3-2023',
-            status: 'Active',
-        },
-        {
-            id: 'game 3',
-            nameServer: 'Le Son Tung',
-            createDate: '6-3-2023',
-            updateDate: '6-3-2023',
-            status: 'Active',
-        },
-    ];
+    const navigate = useNavigate();
+    const [data, setData] = useState([]);
 
-    // useEffect(() => {
-    //     const fetchProducts = async () => {
-    //         const productList = await productApi.getAll();
-    //         console.log(productList);
-    //     };
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                if (!localStorage.getItem('token')) {
+                    navigate('/');
+                    return;
+                }
 
-    //     fetchProducts();
-    // }, []);
+                const requestOptions = {
+                    method: 'GET',
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`,
+                        'Content-Type': 'application/json',
+                    },
+                    redirect: 'follow',
+                };
 
-    var requestOptions = {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-        redirect: 'follow',
-    };
-
-    fetch('https://game-rpg.herokuapp.com/api/v1/gameServer/getAllGameServer?gameName=Dead%20of%20souls', requestOptions)
-        .then((response) => {
-            if (response.ok) {
-                return console.log(response.json());
+                const response = await fetch(
+                    'https://project-game-rpg.herokuapp.com/api/v1/gameServer/getAllGameServer?gameName=Dead%20of%20souls',
+                    requestOptions,
+                );
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log(result);
+                    return result;
+                }
+                throw new Error(response.status);
+            } catch (error) {
+                console.log('error', error);
+                return error;
             }
-            throw new Error(response.status);
-        })
-        .catch((error) => console.log('error', error));
+        };
 
-    // const [pagination, setPagination] = useState({
-    //     _page: 1,
-    //     _limit: 10,
-    //     _totalRows: 1,
-    // });
-
-    // const [filter, setFilter] = useState({
-    //     _limit: 10,
-    //     _page: 1,
-    // });
+        getData()
+            .then((result) => setData(result.data))
+            .catch((error) => console.log(error));
+    }, []);
 
     function handlePageChange(newPage) {
         console.log('New page: ', newPage);

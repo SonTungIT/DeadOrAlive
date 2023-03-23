@@ -30,18 +30,20 @@ function Table(props) {
                 <tr>
                     <th>User Name</th>
                     <th>Full Name</th>
-                    <th>Avatar</th>
-                    <th>Status</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Role</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 {props.data.map((row, index) => (
                     <tr key={index}>
-                        <td>{row.userName}</td>
-                        <td>{row.fullName}</td>
-                        <td>{row.avatar}</td>
-                        <td>{row.status}</td>
+                        <td>{row.username}</td>
+                        <td>{row.firstName + ' ' + row.lastName}</td>
+                        <td>{row.email}</td>
+                        <td>{row.phone}</td>
+                        <td>{row.role.name}</td>
                         <td>
                             <Menu items={MENU_ITEMS}>
                                 <button>

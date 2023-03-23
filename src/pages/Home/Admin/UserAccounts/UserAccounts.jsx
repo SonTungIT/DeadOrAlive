@@ -14,32 +14,33 @@ function UserAccounts() {
     const navigate = useNavigate();
 
     const [data, setData] = useState([]);
-    const [users, setUsers] = useState([]);
 
     useEffect(() => {
         if (!localStorage.getItem('token')) {
             navigate('/');
             return;
         }
+
+        var requestOptions = {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+            },
+            redirect: 'follow',
+        };
+
+        fetch('https://project-game-rpg.herokuapp.com/users/list', requestOptions)
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error(response.status);
+            })
+            .then((result) => {
+                setData(result.data);
+            })
+            .catch((error) => console.log('error', error));
     }, []);
-
-    var requestOptions = {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-        redirect: 'follow',
-    };
-
-    fetch('https://project-game-rpg.herokuapp.com/users/list', requestOptions)
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
-            }
-            throw new Error(response.status);
-        })
-        .then((result) => {})
-        .catch((error) => console.log('error', error));
 
     return (
         <LayoutAdmin>
