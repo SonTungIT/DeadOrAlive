@@ -30,6 +30,11 @@
             border-radius: 999px;
         }
 
+        .btn-user-avatar {
+            background-color: #1b3630;
+            padding: 0px;
+        }
+
         .name {
             @include flex(flex-start, unset, column);
             padding: 0px;
