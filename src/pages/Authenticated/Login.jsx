@@ -60,6 +60,7 @@ function Login() {
             });
 
             localStorage.setItem('token', response.data.data.accessToken);
+            localStorage.setItem('refreshToken', response.data.data.refreshToken);
             // Redirect to the authenticated page
             if (response.status === 202) {
                 var myHeaders = new Headers();
