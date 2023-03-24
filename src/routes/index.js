@@ -13,6 +13,12 @@ import { DefaultLayout } from '~/components/Layout';
 import EditNews from '~/pages/Home/Admin/NewsManagement/EditNews';
 import ServerGame from '~/pages/Home/Admin/GameManagement/GameDetails/ServerGame/ServerGame';
 import UserLayout from '~/components/Layout/UserLayout';
+//Cong add
+import LoginLayout from '~/components/Layout/LoginPayout'
+import UserLogin from '~/pages/Home/Login/Home/UserLogin';
+import UserDow from '~/pages/Home/Login/Download/UserDow';
+import UserUpdate from '~/pages/Home/Login/Update/UserUpdate';
+import UserGame from '~/pages/Home/Login/Game/UserGame';
 
 import User from '~/pages/Home/User/User';
 
@@ -44,6 +50,20 @@ const publicRoutes = [
 
     //User
     { path: config.routes.user, component: User, layout: UserLayout },
+
+
+    //Cong add
+    //Login
+    { path: config.routes.home, component: UserLogin, layout: LoginLayout },
+
+    //Download
+    { path: config.routes.dow, component: UserDow, layout: LoginLayout },
+
+    //Update
+    { path: config.routes.update, component: UserUpdate, layout: LoginLayout },
+
+    //Game
+    { path: config.routes.game, component: UserGame, layout: LoginLayout },
 ];
 
 const privateRoutes = () => {
