@@ -15,55 +15,57 @@ function UserAccounts() {
 
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(10);
+    const [itemsPerPage, setItemsPerPage] = useState(5);
 
     const fetchData = async () => {
         try {
-          const response = await axios.get('https://project-game-rpg.herokuapp.com/api/v1/users/listting', {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`,
-            },
-          });
-          setData(response.data.data);
+            const response = await axios.get('https://project-game-rpg.herokuapp.com/api/v1/users/listting', {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },
+            });
+            setData(response.data.data);
         } catch (error) {
-          console.log('error', error);
+            console.log('error', error);
         }
-      };
-      
-      useEffect(() => {
+    };
+
+    useEffect(() => {
         if (!localStorage.getItem('token')) {
-          navigate('/');
-          return;
+            navigate('/');
+            return;
         }
         fetchData();
-      }, []);
+    }, []);
 
-      const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
     const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
     const handlePageChange = (event, value) => {
         setCurrentPage(value);
-      };
+    };
 
-      return (
+    return (
         <LayoutAdmin>
-          <div className={cx('header')}>
-            <div>Content</div>
-          </div>
-          <div className={cx('container')}>
-            <Table data={currentItems} />
-          </div>
-          <div className={cx('footer')}>
-            <Pagination count={Math.ceil(data.length / itemsPerPage)}
-                        page={currentPage}
-                        onChange={handlePageChange}
-                        showFirstButton
-                        showLastButton
-                        color="primary" />
-          </div>
+            <div className={cx('header')}>
+                <div>Content</div>
+            </div>
+            <div className={cx('container')}>
+                <Table data={currentItems} />
+            </div>
+            <div className={cx('footer')}>
+                <Pagination
+                    count={Math.ceil(data.length / itemsPerPage)}
+                    page={currentPage}
+                    onChange={handlePageChange}
+                    showFirstButton
+                    showLastButton
+                    color="primary"
+                />
+            </div>
         </LayoutAdmin>
-      );
+    );
 }
 
 export default UserAccounts;

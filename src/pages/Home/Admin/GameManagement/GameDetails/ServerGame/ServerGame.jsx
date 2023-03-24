@@ -23,10 +23,6 @@ function ServerGame() {
             <div className={cx('container')}>
                 <ServerTable />
             </div>
-            <div className={cx('footer')}>
-                {/* <Pagination pagination={pagination} onPageChange={handlePageChange} /> */}
-                <Pagination count={10} showFirstButton showLastButton color="primary" />
-            </div>
         </LayoutAdmin>
     );
 }

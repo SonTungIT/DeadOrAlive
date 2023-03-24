@@ -5,6 +5,9 @@ import './ServerTable.scss';
 import Menu from '~/components/Popper/Menu';
 import { PencilIcon, DeleteIcon } from '~/components/Layout/components/Icons';
 import { useNavigate } from 'react-router-dom';
+import { Pagination } from '@mui/material';
+import classNames from 'classnames/bind';
+import styles from './ServerGame.scss';
 
 const MENU_ITEMS = [
     {
@@ -13,11 +16,19 @@ const MENU_ITEMS = [
     },
 ];
 
+const cx = classNames.bind(styles);
+
 function ServerTable() {
     const [checkStatus, setcheckStatus] = useState(false);
     const [data, setData] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(5);
 
     const navigate = useNavigate();
+
+    function handlePageChange(event, newPage) {
+        setCurrentPage(newPage);
+    }
 
     const handleChangeStatus = (status, id) => {
         const handleToggleStatus = (status) => {
@@ -89,39 +100,46 @@ function ServerTable() {
     }, [checkStatus]);
 
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Tên máy chủ</th>
-                    <th>Chủ Server</th>
-                    <th>Ngày tạo</th>
-                    <th>Ngày cập nhật</th>
-                    <th>Trạng thái</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                {data.map((row, index) => (
-                    <tr key={index}>
-                        <td>{row.name}</td>
-                        <td>{row.createdBy}</td>
-                        <td>{row.createdDate}</td>
-                        <td>{row.updateDate}</td>
-                        <td>{row.status}</td>
-                        <td>
-                            {/* <Menu onChange={handleChangeStatus} items={MENU_ITEMS}>
-                                <button>
-                                    <HorizontalIcon />
-                                </button>
-                            </Menu> */}
-                            <button onClick={() => handleChangeStatus(row.status, row.id)}>
-                                {row.status === 'ACTIVE' ? <DeleteIcon /> : <PencilIcon />}
-                            </button>
-                        </td>
+        <>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên máy chủ</th>
+                        <th>Chủ Server</th>
+                        <th>Ngày tạo</th>
+                        <th>Ngày cập nhật</th>
+                        <th>Trạng thái</th>
+                        <th></th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {data.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((row, index) => (
+                        <tr key={index}>
+                            <td>{row.name}</td>
+                            <td>{row.createdBy}</td>
+                            <td>{row.createdDate}</td>
+                            <td>{row.updateDate}</td>
+                            <td>{row.status}</td>
+                            <td>
+                                <button onClick={() => handleChangeStatus(row.status, row.id)}>
+                                    {row.status === 'ACTIVE' ? <DeleteIcon /> : <PencilIcon />}
+                                </button>
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+            <div className={cx('footer')}>
+                <Pagination
+                    count={Math.ceil(data.length / itemsPerPage)}
+                    page={currentPage}
+                    onChange={handlePageChange}
+                    showFirstButton
+                    showLastButton
+                    color="primary"
+                />
+            </div>
+        </>
     );
 }
 
