@@ -1,0 +1,26 @@
+@use '../../../styles/' as *;
+
+.login-wapper {
+    @include flex(center, unset, column);
+
+    .login-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-image: url('https://t3.ftcdn.net/jpg/04/54/87/22/360_F_454872267_I9JE08kJoqNBA5Qozmvf0RgJ0CIiHvQ4.jpg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+        .login-inner {
+            height: 100%;
+            width: 100%;
+            // padding: 0 24px;
+            // display: flex;
+            // justify-content: space-between;
+        }
+        .login-content {
+            flex: 1;
+            // padding-bottom: 50px;
+        }
+    }
+}

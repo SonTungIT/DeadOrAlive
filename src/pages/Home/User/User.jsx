@@ -4,6 +4,9 @@ import styles from './User.scss';
 import HeaderUser from '~/components/Layout/components/HeaderUser/HeaderUser';
 import UserLayout from '~/components/Layout/UserLayout';
 import { useNavigate, Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import * as yup from 'yup';
 
 const cx = classNames.bind(styles);
 
@@ -14,6 +17,11 @@ function User({ children }) {
     const handleUpdateData = (e) => {
         e.preventDefault();
         console.log(data);
+
+        if (data.email === '' || data.phone === '' || data.firstName === '' || data.lastName === '') {
+          toast.error('Vui lòng điền đầy đủ thông tin');
+          return;
+      }
 
         var raw = JSON.stringify({
             firstname: data.firstName,
@@ -39,8 +47,10 @@ function User({ children }) {
                 }
                 throw new Error(response.status);
             })
-            .then((result) => console.log(result))
-            .catch((error) => console.log('error', error));
+            .then((result) => {console.log(result);
+                                toast.success('Update successful');})
+            .catch((error) => {console.log('error', error);
+                                toast.error('Update fail');});
     };
 
     useEffect(() => {
@@ -74,11 +84,12 @@ function User({ children }) {
     const handleCopy = () => {
         const tokenInput = document.getElementById('token-input');
         tokenInput.select();
-        document.execCommand('copy');
+        toast.success('Copied');
     };
 
     return (
         <div className={cx('user-content')}>
+            <ToastContainer />
             <div className={cx('user-info')}>
                 <div className={cx('user-info-left')}>
                     <span className={cx('info-title')}>Thông Tin Cá Nhân</span>
@@ -91,13 +102,14 @@ function User({ children }) {
                         <form onSubmit={handleUpdateData}>
                             <label htmlFor="">Email :</label>
                             <input
-                                className={cx('user-input-email')}
-                                placeholder="Địa chỉ email"
-                                value={data.email}
-                                name="email"
-                                type="email"
-                                onChange={(e) => setData({ ...data, email: e.target.value })}
-                            ></input>
+                              className={cx('user-input-email')}
+                              placeholder="Địa chỉ email"
+                              value={data.email}
+                              name="email"
+                              type="email"
+                              onChange={(e) => setData({ ...data, email: e.target.value })}
+                              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                            />
                             <label htmlFor="">Phone :</label>
                             <input
                                 className={cx('user-input-email')}
@@ -106,20 +118,23 @@ function User({ children }) {
                                 name="phone"
                                 type="number"
                                 onChange={(e) => setData({ ...data, phone: e.target.value })}
+                                pattern="[0-9]$"
                             ></input>
                             <label htmlFor="">Họ và Tên :</label>
                             <div className={cx('user-info-details')}>
                                 <input
                                     className={cx('user-input')}
-                                    placeholder="Tên"
-                                    value={data.lastName}
-                                    onChange={(e) => setData({ ...data, lastName: e.target.value })}
-                                ></input>
-                                <input
-                                    className={cx('user-input')}
                                     placeholder="Họ"
                                     value={data.firstName}
                                     onChange={(e) => setData({ ...data, firstName: e.target.value })}
+                                    required
+                                ></input>
+                                <input
+                                    className={cx('user-input')}
+                                    placeholder="Tên"
+                                    value={data.lastName}
+                                    onChange={(e) => setData({ ...data, lastName: e.target.value })}
+                                    required
                                 ></input>
                             </div>
                             <button type="submit" className={cx('user-savebtn')}>

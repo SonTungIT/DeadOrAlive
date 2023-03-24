@@ -27,6 +27,11 @@ const routes = {
     serverGame: '/game_1/server_game',
 
     user: '/user',
+
+    //UserLogin
+    update: '/update',
+    dow: '/dow',
+    game: '/game',
 };
 
 export default routes;

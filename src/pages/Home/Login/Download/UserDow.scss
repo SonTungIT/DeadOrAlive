@@ -1,0 +1,58 @@
+.dow-content {
+    width: 100%;
+    min-height: 630px;
+    color: white;
+    padding-top: 100px;
+    padding-left: 200px;
+}
+
+.dow-contact {
+    background-color: #222;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.txtContact {
+    color: white;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.heading {
+    user-select: none;
+    display: flex;
+    padding-bottom: 15px;
+    font-size: 50px;
+}
+
+.headerdow {
+    font-size: 25px;
+    display: flex;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.btnDow {
+    color: white;
+    background-color: #222;
+    font-size: 25px;
+    display: flex;
+    cursor: pointer;
+    border-radius: 4px;
+    
+    &:hover {
+        border: 2px solid white;
+    }
+}
+
+.txt {
+    padding-left: 30px;
+    display: flex;
+    padding-bottom: 15px;
+}
+
+.txtdetail {
+    padding-left: 100px;
+    display: flex;
+    padding-bottom: 15px;
+}
