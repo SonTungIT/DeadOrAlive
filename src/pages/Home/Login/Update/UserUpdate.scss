@@ -1,0 +1,55 @@
+.txt-center {
+    padding-top: 100px;
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.our-games_list {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+    .our-games__item {
+        text-align: left;
+        margin-bottom: 30px;
+        list-style: none;
+        width: 50%;
+        padding-top: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+        vertical-align: top;
+        display: inline-block;
+    }
+
+    .game-card {
+        position: relative;
+        transition: all 0.2s ease-out;
+        border-radius: 8px;
+    }
+
+    .game-card__link {
+        display: flex;
+        background-color: transparent;
+    }
+    .game-card__content {
+        padding-left: 25px;
+    }
+}
+
+.update-figure {
+    width: 100%;
+    background-color: lightslategray;
+}
+
+.update-contact {
+    background-color: #222;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.txtContact {
+    color: white;
+    padding-bottom: 10px;
+    text-align: center;
+}

@@ -124,7 +124,6 @@ function User({ children }) {
                             <div className={cx('user-info-details')}>
                                 <input
                                     className={cx('user-input')}
-<<<<<<< HEAD
                                     placeholder="Họ"
                                     value={data.firstName}
                                     onChange={(e) => setData({ ...data, firstName: e.target.value })}
@@ -132,18 +131,10 @@ function User({ children }) {
                                 ></input>
                                 <input
                                     className={cx('user-input')}
-=======
->>>>>>> 1748c73eccc754e383e1a59ed66435d71fb717f6
                                     placeholder="Tên"
                                     value={data.lastName}
                                     onChange={(e) => setData({ ...data, lastName: e.target.value })}
                                     required
-                                ></input>
-                                <input
-                                    className={cx('user-input')}
-                                    placeholder="Họ"
-                                    value={data.firstName}
-                                    onChange={(e) => setData({ ...data, firstName: e.target.value })}
                                 ></input>
                             </div>
                             <button type="submit" className={cx('user-savebtn')}>

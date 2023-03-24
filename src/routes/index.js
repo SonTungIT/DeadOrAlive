@@ -29,7 +29,7 @@ import { Outlet, Navigate } from 'react-router-dom';
 import FirstGame from '~/pages/Home/Admin/GameManagement/GameDetails/FirstGame';
 
 const publicRoutes = [
-    { path: config.routes.home, component: Login, layout: null },
+    { path: config.routes.login, component: Login, layout: null },
     { path: config.routes.register, component: Register, layout: null },
     { path: config.routes.information, component: Info, layout: null },
 
