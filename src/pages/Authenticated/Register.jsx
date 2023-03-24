@@ -24,7 +24,7 @@ function Register() {
 
         try {
             const response = await axios
-                .post('https://project-game-rpg.herokuapp.com/users/signUp', data)
+                .post('https://project-game-rpg.herokuapp.com/api/v1/users/signUp', data)
                 .then((response) => {
                     if (response.data.response.message === 'Account Created') {
                         navigate('/user');

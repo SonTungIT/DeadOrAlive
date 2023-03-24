@@ -14,7 +14,7 @@ function Login() {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
     // useEffect(() => {
     //     setLoading(true)
     //     setTimeout(() => {
@@ -80,6 +80,7 @@ function Login() {
                     .then((result) => {
                         console.log('result', result);
                         localStorage.setItem('role', result.data.role.name);
+                        localStorage.setItem('userName', result.data.lastName + ' ' + result.data.firstName);
                         console.log('localStorage ', localStorage.getItem('role'));
                         if (localStorage.getItem('role') === 'ADMIN') {
                             navigate('/user_management');
@@ -125,27 +126,37 @@ function Login() {
                                     name="password"
                                 />
                             </label>
-                            <button className="btn-icon-arrow" type="submit" onClick={()=>{
-                                setLoading(true)
-                                setTimeout(()=>{
-                                    setLoading(false)
-                                }, 200000)
-                            }}>
-                                {
-                                    loading ? <ClipLoader className='loading-animation' color={'#be29cc'} loading={loading} size={50}/> : ''
-                                }
+                            <button
+                                className="btn-icon-arrow"
+                                type="submit"
+                                onClick={() => {
+                                    setLoading(true);
+                                    setTimeout(() => {
+                                        setLoading(false);
+                                    }, 200000);
+                                }}
+                            >
+                                {loading ? (
+                                    <ClipLoader
+                                        className="loading-animation"
+                                        color={'#be29cc'}
+                                        loading={loading}
+                                        size={50}
+                                    />
+                                ) : (
+                                    ''
+                                )}
                             </button>
                             <button onClick={signWithGoogle}>
                                 <Link className="google-btn" to={config.routes.user}></Link>
                             </button>
-                            
                         </form>
                         <button onClick={''}>
                             <Link className="link-btn" to={config.routes.register}>
                                 TẠO TÀI KHOẢN
                             </Link>
                         </button>
-                        
+
                         {/* <div className="loader">
                             <span login="--i:1;"></span>
                             <span login="--i:2;"></span>
@@ -168,12 +179,10 @@ function Login() {
                             <span login="--i:19;"></span>
                             <span login="--i:20;"></span>
                         </div> */}
-                        
                     </div>
                 </div>
             </div>
         </div>
-        
     );
 }
 

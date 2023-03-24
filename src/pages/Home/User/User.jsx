@@ -65,9 +65,17 @@ function User({ children }) {
                 }
                 throw new Error(response.status);
             })
-            .then((result) => setData(result.data))
+            .then((result) => {
+                setData(result.data);
+            })
             .catch((error) => console.log('error', error));
     }, [navigate]);
+
+    const handleCopy = () => {
+        const tokenInput = document.getElementById('token-input');
+        tokenInput.select();
+        document.execCommand('copy');
+    };
 
     return (
         <div className={cx('user-content')}>
@@ -120,7 +128,7 @@ function User({ children }) {
                     </div>
                 </div>
             </div>
-            {/* đăng nhập tài khoản riots */}
+            {/* đăng nhập tài khoản */}
             <div className={cx('user-info')}>
                 <div className={cx('user-info-left')}>
                     <span className={cx('info-title')}>Đăng Nhập Tài Khoản DOS</span>
@@ -148,6 +156,27 @@ function User({ children }) {
                                 <span>LƯU THAY ĐỔI</span>
                             </button>
                         </form>
+                    </div>
+                </div>
+            </div>
+            {/* token */}
+            <div className={cx('user-info')}>
+                <div className={cx('user-info-left')}>
+                    <span className={cx('info-title')}>Access Token</span>
+                </div>
+                <div className={cx('token-right')}>
+                    <div className={cx('user-info-input')}>
+                        <div className={cx('token-changePwd')}>
+                            <input
+                                className={cx('user-input user-input-acc')}
+                                placeholder="AccessToken"
+                                value={localStorage.getItem('token')}
+                                id="token-input"
+                            ></input>
+                            <button className={cx('btn-copy')} onClick={handleCopy}>
+                                Copy
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

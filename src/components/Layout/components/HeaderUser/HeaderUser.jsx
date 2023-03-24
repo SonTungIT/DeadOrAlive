@@ -68,7 +68,7 @@ function HeaderUser() {
                         <MenuUser items={MENU_ACCOUNTS}>
                             <div>
                                 <Button accountName rightIcon={<ArrowDownIcon />}>
-                                    <span className={cx('user-name')}>Anh Trường Faker</span>
+                                    <span className={cx('user-name')}>{localStorage.getItem('userName')}</span>
                                 </Button>
                             </div>
                         </MenuUser>
