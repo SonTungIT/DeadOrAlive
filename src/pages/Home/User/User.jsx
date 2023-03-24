@@ -1,12 +1,74 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './User.scss';
 import HeaderUser from '~/components/Layout/components/HeaderUser/HeaderUser';
 import UserLayout from '~/components/Layout/UserLayout';
+import { useNavigate, Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 function User({ children }) {
+    const navigate = useNavigate();
+    const [data, setData] = useState({ email: '', phone: '', firstName: '', lastName: '' });
+
+    const handleUpdateData = (e) => {
+        e.preventDefault();
+        console.log(data);
+
+        var raw = JSON.stringify({
+            firstname: data.firstName,
+            lastname: data.lastName,
+            email: data.email,
+            phone: data.phone,
+        });
+
+        var requestOptions = {
+            method: 'PUT',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+            },
+            body: raw,
+            redirect: 'follow',
+        };
+
+        fetch('https://project-game-rpg.herokuapp.com/api/v1/users/update', requestOptions)
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error(response.status);
+            })
+            .then((result) => console.log(result))
+            .catch((error) => console.log('error', error));
+    };
+
+    useEffect(() => {
+        if (!localStorage.getItem('token')) {
+            navigate('/');
+            return;
+        }
+
+        var requestOptions = {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+            },
+            redirect: 'follow',
+        };
+
+        fetch('https://project-game-rpg.herokuapp.com/api/v1/users/profile', requestOptions)
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error(response.status);
+            })
+            .then((result) => setData(result.data))
+            .catch((error) => console.log('error', error));
+    }, [navigate]);
+
     return (
         <div className={cx('user-content')}>
             <div className={cx('user-info')}>
@@ -18,13 +80,40 @@ function User({ children }) {
                 </div>
                 <div className={cx('user-info-right')}>
                     <div className={cx('user-info-input')}>
-                        <form>
-                            <input className={cx('user-input-email')} placeholder="Địa chỉ email"></input>
+                        <form onSubmit={handleUpdateData}>
+                            <label htmlFor="">Email :</label>
+                            <input
+                                className={cx('user-input-email')}
+                                placeholder="Địa chỉ email"
+                                value={data.email}
+                                name="email"
+                                type="email"
+                                onChange={(e) => setData({ ...data, email: e.target.value })}
+                            ></input>
+                            <label htmlFor="">Phone :</label>
+                            <input
+                                className={cx('user-input-email')}
+                                placeholder="Phone"
+                                value={data.phone}
+                                name="phone"
+                                type="number"
+                                onChange={(e) => setData({ ...data, phone: e.target.value })}
+                            ></input>
                             <div className={cx('user-info-details')}>
-                                <input className={cx('user-input')} placeholder="phone"></input>
-                                <input className={cx('user-input')} placeholder="ngày sinh"></input>
+                                <input
+                                    className={cx('user-input')}
+                                    placeholder="Họ"
+                                    value={data.firstName}
+                                    onChange={(e) => setData({ ...data, firstName: e.target.value })}
+                                ></input>
+                                <input
+                                    className={cx('user-input')}
+                                    placeholder="Tên"
+                                    value={data.lastName}
+                                    onChange={(e) => setData({ ...data, lastName: e.target.value })}
+                                ></input>
                             </div>
-                            <button className={cx('user-savebtn')}>
+                            <button type="submit" className={cx('user-savebtn')}>
                                 <span>LƯU THAY ĐỔI</span>
                             </button>
                         </form>
@@ -42,12 +131,12 @@ function User({ children }) {
                 <div className={cx('user-info-right')}>
                     <div className={cx('user-info-input')}>
                         <form>
-                            <input className={cx('user-input-email')} placeholder="TÊN NGƯỜI DÙNG"></input>
                             <span className={cx('user-changePwd')}>Đổi Mật Khẩu</span>
                             <div className={cx('user-info-details-changePwd')}>
                                 <input
                                     className={cx('user-input user-input-acc')}
                                     placeholder="MẬT KHẨU HIỆN TẠI"
+                                    value="***********"
                                 ></input>
                                 <input className={cx('user-input user-input-acc')} placeholder="MẬT KHẨU MỚI"></input>
                                 <input

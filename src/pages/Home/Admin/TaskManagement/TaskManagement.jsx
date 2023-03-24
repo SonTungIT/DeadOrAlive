@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './TaskManagement.scss';
 import { Pagination } from '@mui/material';
@@ -7,10 +7,13 @@ import TaskTable from '~/pages/Home/Admin/TaskManagement/TaskTable';
 import Button from '~/components/Layout/components/Button';
 import { AddIcon } from '~/components/Layout/components/Icons';
 import ImportModal from './ImportModal/ImportModal';
+import { useNavigate, Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 function TaskManagement() {
+    const navigate = useNavigate();
+
     const data = [
         { id: '1', taskName: 'Đánh slime', details: 'Tiêu diệt 3 con slime', reward: 'kiếm súng', status: 'Active' },
         { id: '1', taskName: 'Đánh slime', details: 'Tiêu diệt 3 con slime', reward: 'kiếm súng', status: 'Active' },
@@ -24,6 +27,13 @@ function TaskManagement() {
     ];
 
     const [openModal, setOpenModal] = useState(false);
+
+    useEffect(() => {
+        if (!localStorage.getItem('token')) {
+            navigate('/');
+            return;
+        }
+    }, []);
 
     return (
         <div>

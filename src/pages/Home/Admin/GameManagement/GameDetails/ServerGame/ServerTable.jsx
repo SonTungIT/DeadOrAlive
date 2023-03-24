@@ -19,14 +19,13 @@ function ServerTable() {
 
     const navigate = useNavigate();
 
-    const handleChangeStatus = (status, name) => {
+    const handleChangeStatus = (status, id) => {
         const handleToggleStatus = (status) => {
             return status === 'DELETED' ? 'ACTIVE' : 'DELETED';
         };
 
         var raw = JSON.stringify({
-            gameName: 'Dead of souls',
-            serverName: name,
+            id: id,
             statusName: handleToggleStatus(status),
         });
 
@@ -115,8 +114,8 @@ function ServerTable() {
                                     <HorizontalIcon />
                                 </button>
                             </Menu> */}
-                            <button onClick={() => handleChangeStatus(row.status, row.name)}>
-                                <PencilIcon />
+                            <button onClick={() => handleChangeStatus(row.status, row.id)}>
+                                {row.status === 'ACTIVE' ? <DeleteIcon /> : <PencilIcon />}
                             </button>
                         </td>
                     </tr>

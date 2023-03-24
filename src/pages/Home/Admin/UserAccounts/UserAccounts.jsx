@@ -29,7 +29,7 @@ function UserAccounts() {
             redirect: 'follow',
         };
 
-        fetch('https://project-game-rpg.herokuapp.com/users/list', requestOptions)
+        fetch('https://project-game-rpg.herokuapp.com/api/v1/users/listting', requestOptions)
             .then((response) => {
                 if (response.ok) {
                     return response.json();
