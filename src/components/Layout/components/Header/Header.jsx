@@ -10,6 +10,28 @@ const cx = classNames.bind(styles);
 
 function Header() {
     const handleLogout = () => {
+        var raw = `"refreshToken": ${localStorage.getItem('refreshToken')}`;
+
+        var requestOptions = {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+            },
+            body: raw,
+            redirect: 'follow',
+        };
+
+        fetch('https://project-game-rpg.herokuapp.com/api/v1/auth/logout', requestOptions)
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error(response.status);
+            })
+            .then((result) => console.log(result.status))
+            .catch((error) => console.log('error', error));
+
         localStorage.clear();
     };
 

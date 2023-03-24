@@ -107,18 +107,19 @@ function User({ children }) {
                                 type="number"
                                 onChange={(e) => setData({ ...data, phone: e.target.value })}
                             ></input>
+                            <label htmlFor="">Họ và Tên :</label>
                             <div className={cx('user-info-details')}>
-                                <input
-                                    className={cx('user-input')}
-                                    placeholder="Họ"
-                                    value={data.firstName}
-                                    onChange={(e) => setData({ ...data, firstName: e.target.value })}
-                                ></input>
                                 <input
                                     className={cx('user-input')}
                                     placeholder="Tên"
                                     value={data.lastName}
                                     onChange={(e) => setData({ ...data, lastName: e.target.value })}
+                                ></input>
+                                <input
+                                    className={cx('user-input')}
+                                    placeholder="Họ"
+                                    value={data.firstName}
+                                    onChange={(e) => setData({ ...data, firstName: e.target.value })}
                                 ></input>
                             </div>
                             <button type="submit" className={cx('user-savebtn')}>
