@@ -12,6 +12,7 @@
 
         width: 100%;
         margin-top: 50px;
+        margin-bottom: 50px;
 
         .user-info-left {
             @include flex(unset, unset, column);
@@ -108,5 +109,36 @@
         font-weight: 500;
         font-size: 16px;
         border-radius: 3px;
+    }
+}
+
+.token-right {
+    @include flex(center, center, unset);
+
+    background-color: #292727;
+    flex: 1;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.token-changePwd {
+    @include flex(center, space-between, unset);
+    .user-input {
+        width: 450px;
+        background-color: transparent;
+        border: 1px solid #84848453;
+        color: #f0f0f0;
+        font-weight: 500;
+        font-size: 16px;
+        border-radius: 3px;
+    }
+
+    .btn-copy {
+        background-color: transparent;
+        border: 1px solid #84848453;
+        color: #f0f0f0;
+        padding: 10px;
+        font-size: 16px;
+        margin-left: 20px;
     }
 }
