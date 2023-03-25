@@ -10,7 +10,9 @@ function UserDow({ children }) {
             <div className={cx('dow-content')}>
                 <h1 className="heading">Tải Game</h1>
                 <div className="headerdow">TẢI BẢN FULL</div>
-                <button className="btnDow">Download</button>
+                <a href="https://drive.google.com/drive/u/1/trash" className="btnDow">
+                    Download
+                </a>
                 <div className="headerdow">Bản cài đặt DOA "Dead or Alive"</div>
                 <div className="txt">Kiến nghị:</div>
                 <div className="txtdetail">- Tắt Antivirus trước khi chạy file.</div>
@@ -28,7 +30,7 @@ function UserDow({ children }) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default UserDow;

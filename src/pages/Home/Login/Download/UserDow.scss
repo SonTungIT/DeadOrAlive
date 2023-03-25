@@ -1,6 +1,6 @@
 .dow-content {
     width: 100%;
-    min-height: 630px;
+    min-height: 610px;
     color: white;
     padding-top: 100px;
     padding-left: 200px;
@@ -35,11 +35,13 @@
 .btnDow {
     color: white;
     background-color: #222;
+    width: 13%;
+    padding: 20px;
     font-size: 25px;
     display: flex;
     cursor: pointer;
     border-radius: 4px;
-    
+
     &:hover {
         border: 2px solid white;
     }

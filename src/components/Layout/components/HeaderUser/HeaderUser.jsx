@@ -41,7 +41,7 @@ function HeaderUser() {
     return (
         <header className={cx('user-wrapper')}>
             <div className={cx('user-inner')}>
-                <Button to={config.routes.home} className={cx('logo')}>
+                <Button className={cx('logo')}>
                     <img alt="Logo" src={logo} />
                 </Button>
                 <div className={cx('user-content')}>
