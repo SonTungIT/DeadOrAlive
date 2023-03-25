@@ -84,6 +84,7 @@ function User({ children }) {
     const handleCopy = () => {
         const tokenInput = document.getElementById('token-input');
         tokenInput.select();
+        document.execCommand('copy');
         toast.success('Copied');
     };
 

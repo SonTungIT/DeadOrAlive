@@ -3,6 +3,8 @@ import config from '~/config';
 import { useNavigate, Link } from 'react-router-dom';
 import './Login.scss';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Register() {
     const [username, setUsername] = useState('');
@@ -27,13 +29,16 @@ function Register() {
                 .post('https://project-game-rpg.herokuapp.com/api/v1/users/signUp', data)
                 .then((response) => {
                     if (response.data.response.message === 'Account Created') {
-                        navigate('/user');
+                        navigate('/login');
                         console.log('check response ==> ', response);
+                        toast.success('Register successful');
                     }
                     // setData(response.data.response);
+                    
                 });
         } catch (error) {
             console.log('check error ==> ', error);
+            toast.error('Register Fail');
         }
     };
 
@@ -49,6 +54,7 @@ function Register() {
 
     return (
         <div className="Container">
+            <ToastContainer />
             <div className="logo-game">
                 <img src="./images/DOA-3.png" alt="" />
                 <div className="auth-form-container">
