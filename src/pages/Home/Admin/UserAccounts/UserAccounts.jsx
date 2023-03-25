@@ -16,6 +16,7 @@ function UserAccounts() {
     const [data, setData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage, setItemsPerPage] = useState(5);
+    const [accessToken, setAccessToken] = useState(localStorage.getItem('token'));
 
     const fetchData = async () => {
         try {
@@ -35,8 +36,46 @@ function UserAccounts() {
             navigate('/');
             return;
         }
+
+        newAccessToken();
         fetchData();
-    }, []);
+    }, [accessToken]);
+
+    const newAccessToken = () => {
+        const intervalId = setInterval(() => {
+            const expirationTime = localStorage.getItem('expirationTime');
+            const currentTime = Date.now();
+
+            if (expirationTime && currentTime >= expirationTime) {
+                clearInterval(intervalId);
+
+                const refreshToken = localStorage.getItem('refreshToken');
+
+                axios
+                    .post(
+                        'https://project-game-rpg.herokuapp.com/api/v1/auth/accessToken',
+                        {
+                            refreshToken: refreshToken,
+                        },
+                        {
+                            headers: {
+                                Authorization: `Bearer ${accessToken}`,
+                            },
+                        },
+                    )
+                    .then((response) => {
+                        const { accessToken, expiresIn } = response.data;
+
+                        setAccessToken(accessToken);
+                        localStorage.setItem('token', accessToken);
+                        localStorage.setItem('expirationTime', currentTime + expiresIn * 1000);
+                    })
+                    .catch((error) => console.log(error));
+            }
+        }, 1000 * 60);
+
+        return () => clearInterval(intervalId);
+    };
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;

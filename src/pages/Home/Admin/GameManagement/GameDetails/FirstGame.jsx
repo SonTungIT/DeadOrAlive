@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import classNames from 'classnames/bind';
 import styles from './FirstGame.scss';
 import LayoutAdmin from '../../LayoutAdmin';
@@ -8,6 +9,15 @@ import config from '~/config';
 const cx = classNames.bind(styles);
 
 function FirstGame() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!localStorage.getItem('token')) {
+            navigate('/');
+            return;
+        }
+    }, []);
+
     return (
         <div>
             <LayoutAdmin>
@@ -15,7 +25,7 @@ function FirstGame() {
                     <div>First Game</div>
                 </div> */}
                 <div className={cx('container')}>
-                    <div className={cx('title')}>Game 1</div>
+                    <div className={cx('title')}>Dead Of Souls</div>
                     <div className={cx('body')}>
                         <form>
                             <div className={cx('form-body')}>

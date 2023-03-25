@@ -8,7 +8,6 @@ import { signInWithPopup } from 'firebase/auth';
 import { authService } from '~/service/authService';
 import './Login.scss';
 import { ClipLoader } from 'react-spinners';
-import logo from '~/images/DOA-3.png';
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -96,7 +95,8 @@ function Login() {
         <div className="Container">
             {/* <div class="loader"></div> */}
             <div className="logo-game">
-                <Link to={config.routes.home}><img src={logo} alt="Logo" /></Link>
+                <img src="./images/DOA-3.png" alt="" />
+                <div className="logo-game">
                     <div className="auth-form-container">
                         <h2>ĐĂNG NHẬP</h2>
                         {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
@@ -153,6 +153,7 @@ function Login() {
                         </button>
                     </div>
                 </div>
+            </div>
         </div>
     );
 }

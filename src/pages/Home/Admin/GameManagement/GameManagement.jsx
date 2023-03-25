@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './GameManagement.scss';
 import LayoutAdmin from '../LayoutAdmin';
 import Button from '~/components/Layout/components/Button';
 import { AddIcon } from '~/components/Layout/components/Icons';
 import config from '~/config';
+import { useNavigate, Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
 function GameManagement() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (!localStorage.getItem('token')) {
+            navigate('/');
+            return;
+        }
+    }, []);
+
     return (
         <div>
             <LayoutAdmin>
