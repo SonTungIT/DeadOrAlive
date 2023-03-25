@@ -128,7 +128,7 @@ function Login() {
                                     setLoading(true);
                                     setTimeout(() => {
                                         setLoading(false);
-                                    }, 200000);
+                                    }, 5000);
                                 }}
                             >
                                 {loading ? (
