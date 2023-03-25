@@ -20,7 +20,7 @@ function UserAccounts() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('https://project-game-rpg.herokuapp.com/api/v1/users/listting', {
+            const response = await axios.get('https://project-game-rpg.herokuapp.com/api/v1/users/listUsers', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },

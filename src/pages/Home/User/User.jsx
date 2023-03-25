@@ -19,9 +19,9 @@ function User({ children }) {
         console.log(data);
 
         if (data.email === '' || data.phone === '' || data.firstName === '' || data.lastName === '') {
-          toast.error('Vui lòng điền đầy đủ thông tin');
-          return;
-      }
+            toast.error('Vui lòng điền đầy đủ thông tin');
+            return;
+        }
 
         var raw = JSON.stringify({
             firstname: data.firstName,
@@ -40,17 +40,21 @@ function User({ children }) {
             redirect: 'follow',
         };
 
-        fetch('https://project-game-rpg.herokuapp.com/api/v1/users/update', requestOptions)
+        fetch('https://project-game-rpg.herokuapp.com/api/v1/users/updateUser', requestOptions)
             .then((response) => {
                 if (response.ok) {
                     return response.json();
                 }
                 throw new Error(response.status);
             })
-            .then((result) => {console.log(result);
-                                toast.success('Update successful');})
-            .catch((error) => {console.log('error', error);
-                                toast.error('Update fail');});
+            .then((result) => {
+                console.log(result);
+                toast.success('Update successful');
+            })
+            .catch((error) => {
+                console.log('error', error);
+                toast.error('Update fail');
+            });
     };
 
     useEffect(() => {
@@ -76,6 +80,7 @@ function User({ children }) {
                 throw new Error(response.status);
             })
             .then((result) => {
+                // localStorage.setItem('userName', result.data.lastName + ' ' + result.data.firstName);
                 setData(result.data);
             })
             .catch((error) => console.log('error', error));
@@ -103,13 +108,13 @@ function User({ children }) {
                         <form onSubmit={handleUpdateData}>
                             <label htmlFor="">Email :</label>
                             <input
-                              className={cx('user-input-email')}
-                              placeholder="Địa chỉ email"
-                              value={data.email}
-                              name="email"
-                              type="email"
-                              onChange={(e) => setData({ ...data, email: e.target.value })}
-                              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                className={cx('user-input-email')}
+                                placeholder="Địa chỉ email"
+                                value={data.email}
+                                name="email"
+                                type="email"
+                                onChange={(e) => setData({ ...data, email: e.target.value })}
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                             />
                             <label htmlFor="">Phone :</label>
                             <input
