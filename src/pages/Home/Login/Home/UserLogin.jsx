@@ -20,7 +20,7 @@ function UserLogin({ children }) {
                 <ul className={cx('our-games_list')}>
                     <li className={cx('our-games__item')}>
                         <div className={cx('game-card')}>
-                            <Button className={cx('game-card__link')} to={config.routes.game1}>
+                            <Button className={cx('game-card__link')} to={config.routes.home}>
                                 <img
                                     alt="game"
                                     width="100%"
