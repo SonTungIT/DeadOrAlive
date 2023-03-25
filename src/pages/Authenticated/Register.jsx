@@ -29,12 +29,11 @@ function Register() {
                 .post('https://project-game-rpg.herokuapp.com/api/v1/users/signUp', data)
                 .then((response) => {
                     if (response.data.response.message === 'Account Created') {
+                        toast.success('Register successful');
                         navigate('/login');
                         console.log('check response ==> ', response);
-                        toast.success('Register successful');
                     }
                     // setData(response.data.response);
-                    
                 });
         } catch (error) {
             console.log('check error ==> ', error);

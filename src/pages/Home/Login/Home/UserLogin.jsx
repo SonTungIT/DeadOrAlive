@@ -10,7 +10,10 @@ function UserLogin({ children }) {
     return (
         <div>
             <div className={cx('login-content')}>
-                <img className={cx('login-img')} src='https://www.riotgames.com/darkroom/500/46d557221573d80265caeb4691995888:443d27b048e56f64ebc65917628b6077/mageseeker-preorder-riothome-logo.png'></img>
+                <img
+                    className={cx('login-img')}
+                    src="https://www.riotgames.com/darkroom/500/46d557221573d80265caeb4691995888:443d27b048e56f64ebc65917628b6077/mageseeker-preorder-riothome-logo.png"
+                ></img>
             </div>
             <div className={cx('login-detail')}>
                 <h1 className={cx('txt-center')}>Chuyện gì đang xảy ra vậy?</h1>
@@ -160,7 +163,7 @@ function UserLogin({ children }) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default UserLogin;
